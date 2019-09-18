@@ -1,0 +1,21 @@
+{% extends "page.html" %}
+
+{% block secondary %}
+{% endblock %}
+
+{% block primary %}
+<div class="primary col-sm-11 col-xs-12">
+  {% block primary_content %}
+    <h1>Publisher</h1> 
+    <div><p>Swiss Federal Institute of Aquatic Science and Technology, Eawag<br /> 
+	Research Data Management<br /> 
+	Überlandstrasse 133<br />  
+	8600 Dübendorf<br />  
+	Switzerland</p><p>
+	tel: +41 (0)58 765 55 11<br />  
+	fax: +41 (0)58 765 50 28<br />  
+	email: <a href="mailto:info@eawag.ch">info@eawag.ch</a><br />  
+	web: <a href="https://www.eawag.ch">https://www.eawag.ch</a>   
+    </p></div> 
+  {% endblock %}
+{% endblock %}

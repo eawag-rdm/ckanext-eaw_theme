@@ -3,6 +3,7 @@ import ckan.plugins as plugins
 import ckan.plugins.toolkit as tk
 from ckan.lib.plugins import DefaultTranslation
 from ckan.lib.helpers import linked_user
+from flask import Blueprint, render_template
 import logging
 from json import loads
 import re
@@ -124,6 +125,10 @@ def eaw_theme_geteawuser(username):
                'pic_url': '{}{}.jpg'.format(pic_url_prefix, username)}
     return eawuser
 
+# view function for disclaimers (IBlueprint)
+def disclaimer(typ):
+    return render_template(u'disclaimer/disclaimer.html'.format(typ), typ=typ)
+    
     
 class Eaw_ThemePlugin(plugins.SingletonPlugin, DefaultTranslation):
     plugins.implements(plugins.ITranslation)
@@ -131,6 +136,7 @@ class Eaw_ThemePlugin(plugins.SingletonPlugin, DefaultTranslation):
     plugins.implements(plugins.IFacets)
     plugins.implements(plugins.ITemplateHelpers)
     plugins.implements(plugins.IPackageController, inherit=True)
+    plugins.implements(plugins.IBlueprint)
     
 
     # IConfigurer
@@ -193,4 +199,8 @@ class Eaw_ThemePlugin(plugins.SingletonPlugin, DefaultTranslation):
         })
         return search_params
 
-        
+    # IBlueprint
+    def get_blueprint(self):
+        bp = Blueprint(u'disclaimer', self.__module__)
+        bp.add_url_rule(u'/<typ>', view_func=disclaimer)
+        return bp
