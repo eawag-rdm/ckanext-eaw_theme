@@ -1,7 +1,23 @@
 {# Removes some attribution - verbosity from the footer. #}
 {# The link to the CKAN project-page should be informaive enough. #}
+{# Add various legalese #}
 
 {% ckan_extends %}
+
+{% block footer_links %}
+<div class="col-md-2">
+  <a href="{{ h.url_for('disclaimer.disclaimer', typ='legal_notice') }}">Legal Notice</a>
+</div>
+<div class="col-md-2">
+  <a href="{{ h.url_for('disclaimer.disclaimer', typ='liability') }}">Liability</a>
+</div>
+<div class="col-md-2">
+  <a href="{{ h.url_for('disclaimer.disclaimer', typ='copyright') }}">Copyright</a>
+</div>
+<div class="col-md-2">
+  <a href="{{ h.url_for('disclaimer.disclaimer', typ='dataprotection') }}">Privacy Policy</a>
+</div>
+{% endblock %}
 
 {% block footer_links_ckan %}
 {% endblock %}
