@@ -3,7 +3,8 @@ import ckan.plugins as plugins
 import ckan.plugins.toolkit as tk
 from ckan.lib.plugins import DefaultTranslation
 from ckan.lib.helpers import linked_user
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, abort
+from jinja2 import TemplateNotFound
 import logging
 from json import loads
 import re
@@ -127,8 +128,11 @@ def eaw_theme_geteawuser(username):
 
 # view function for disclaimers (IBlueprint)
 def disclaimer(typ):
-    return render_template(u'disclaimer/disclaimer.html'.format(typ), typ=typ)
-    
+    try:
+        return render_template(u'disclaimer/disclaimer.html', typ=typ)
+    except TemplateNotFound:
+        abort(404)
+
     
 class Eaw_ThemePlugin(plugins.SingletonPlugin, DefaultTranslation):
     plugins.implements(plugins.ITranslation)
@@ -202,5 +206,5 @@ class Eaw_ThemePlugin(plugins.SingletonPlugin, DefaultTranslation):
     # IBlueprint
     def get_blueprint(self):
         bp = Blueprint(u'disclaimer', self.__module__)
-        bp.add_url_rule(u'/<typ>', view_func=disclaimer)
+        bp.add_url_rule(u'/disclaimer/<typ>', view_func=disclaimer)
         return bp
