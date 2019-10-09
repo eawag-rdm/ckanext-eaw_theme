@@ -1,0 +1,12 @@
+{# Add a header bar to indicate departments #}
+{# Deprtements are identified by having a "shortname" #}
+
+{% ckan_extends %}
+{% block item_inner %}
+  {% block dept_header %}
+  {% if organization.shortname %}
+     <div class="department-header"><span class="media-heading">Department</span></div>
+  {% endif %}
+  {% endblock %}
+  {{ super() }}
+{% endblock %}

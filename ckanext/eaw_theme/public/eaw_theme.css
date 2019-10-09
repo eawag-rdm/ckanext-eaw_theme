@@ -366,3 +366,10 @@ label.checkbox.btn.btn-success.fa.fa-plus {
     -moz-border-radius: 15px 15px 0 0;
     border-radius: 15px 15px 0 0;
 }
+
+.department-header {
+  text-align: center;
+  background: #87FF87;
+  margin: -15px -15px 5px -15px;
+  padding: 4px;
+}

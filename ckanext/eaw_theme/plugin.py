@@ -126,6 +126,15 @@ def eaw_theme_geteawuser(username):
                'pic_url': '{}{}.jpg'.format(pic_url_prefix, username)}
     return eawuser
 
+# Returns boolean indicating wheter organization is department
+# (= has empty group field)
+# --- CURRENTLY NOT USED ---
+def eaw_theme_orga_is_dept(name):
+    if tk.get_action('organization_show')(data_dict={'id': name}).get('groups'):
+        return False
+    else:
+        return True
+    
 # view function for disclaimers (IBlueprint)
 def disclaimer(typ):
     try:
@@ -194,7 +203,9 @@ class Eaw_ThemePlugin(plugins.SingletonPlugin, DefaultTranslation):
                 'eaw_theme_geteawuser':
                 eaw_theme_geteawuser,
                 'eaw_theme_patch_linked_user':
-                eaw_theme_patch_linked_user}
+                eaw_theme_patch_linked_user,
+                'eaw_theme_orga_is_dept':  # currently not used
+                eaw_theme_orga_is_dept}
 
     # IPackageController
     def before_search(self, search_params):
