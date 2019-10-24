@@ -372,3 +372,11 @@ label.checkbox.btn.btn-success.fa.fa-plus {
   margin: -15px -15px 5px -15px;
   padding: 4px;
 }
+
+article.module div.jumbotron {
+  background-color: #AED6E3 !important;
+}
+
+article.module div.page-header {
+  background-color: #AED6E3 !important;
+}
