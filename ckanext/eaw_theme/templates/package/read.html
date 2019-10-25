@@ -2,8 +2,10 @@
 {% ckan_extends %}
 
 {% block package_description %}
+  <a class="doi-link" href="https://doi.org/{{ pkg.doi }}" rel="dc:identifier",
+  target="_blank">https://doi.org/{{ pkg.doi }}</a>
   {{ super() }}
-{# We include a filed "spatial" through ckanext-scheming. It is not in "extras" #}
+  {# We include a filed "spatial" through ckanext-scheming. It is not in "extras" #}
   {% set dataset_extent = c.pkg_dict['spatial'] %}
   {% if dataset_extent and dataset_extent != "{}" %}
     {% snippet "spatial/snippets/dataset_map.html", extent=dataset_extent %}
