@@ -3,21 +3,26 @@
   <h2>What data do we collect?</h2>
 
   This service records and retains a record of http requests as logged
-  by our webserver in standard configuration. These records include
-  the originating IP-address, a timestamp, the requested URL, the
-  user-agent string, and the address of the previous web page from
-  which a link to our service was followed.
-
-  These data are stored on a secured server within the Eawag network.
+  by our webserver. These records include the originating IP-address,
+  a timestamp, the requested URL, the user-agent string, and the
+  address of the previous web page from which a link to our service
+  was followed. We have modified the logging-procedure of our
+  webserver with the tool <i>AnonIP</i>
+  (<a href="https://pypi.org/project/anonip/"
+  target="_blank">https://pypi.org/project/anonip/</a>) such that the
+  last 12 bits and the last 84 bits of IPv4 and IPv6 addresses,
+  respectively, are masked in the logs and cannot be used to identify
+  individual users or clients. These data are stored on a secured
+  server within the Eawag network.
   
   <h2>How will we use your data?</h2>
 
   We use these data to track technical problems. We might derive
-  summary statistics about the usage of our services from these data
-  and publish them. Any such published statistic will be aggregated
-  such that no inferences about individual clients or users can be
-  drawn.
-
+  anonymous summary statistics about the usage of our services from
+  these data and publish them. Any such published statistic will be
+  aggregated such that no inferences about individual clients or users
+  can be drawn.
+  
   <h2>Cookies and tracking technology</h2>
 
   This service does not use cookies. This service does not employ any
