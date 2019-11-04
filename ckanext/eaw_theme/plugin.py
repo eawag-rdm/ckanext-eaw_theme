@@ -7,6 +7,7 @@ from flask import Blueprint, render_template, abort
 from jinja2 import TemplateNotFound
 import logging
 from json import loads
+import mimetypes
 import re
 
 logger = logging.getLogger(__name__)
@@ -158,6 +159,8 @@ class Eaw_ThemePlugin(plugins.SingletonPlugin, DefaultTranslation):
         tk.add_public_directory(config_, 'public')
         tk.add_resource('fanstatic/vendor/bootstrap-switch', 'bootstrap-switch')
         tk.add_resource('fanstatic', 'eaw_theme')
+        mimetypes.add_type('application/x-7z-compressed', '.7z')
+
 
     # IFacets
     def dataset_facets(self, facet_dict, package_type):
