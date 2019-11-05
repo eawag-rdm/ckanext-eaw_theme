@@ -398,6 +398,12 @@ a.doi-link {
 }
 
 .nav-pills > li > a.upstream_link {
-  border: thin solid #ff9955;
   text-align: center;
 }
+
+.nav-pills > li > a.upstream_link::after {
+  font-family: "FontAwesome";
+  font-style: normal;
+  content: " \f14c";
+}
+  
