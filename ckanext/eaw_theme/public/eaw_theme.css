@@ -312,6 +312,7 @@ li.resource-item:hover {
 
 .wrapper::before {
   border-right: 0;
+  width: 0;
 }
 
 /* horizontal lines betwen facets */
