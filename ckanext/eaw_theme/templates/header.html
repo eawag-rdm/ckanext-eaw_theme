@@ -31,8 +31,11 @@
       {% block header_site_navigation %}
         <nav class="section navigation">
           <ul class="nav nav-pills">
-          {% block header_site_navigation_tabs %} {{ h.build_nav_main( ('search', _('Datasets')), ('organizations_index', _('Organizations')),
-          ('group_index', _('Groups')), ('home.about', _('About')) ) }} {% endblock %}
+            {% block header_site_navigation_tabs %}
+	      {{ h.build_nav_main( ('search', _('Datasets')), ('organizations_index', _('Organizations')),
+              ('group_index', _('Groups')), ('home.about', _('About')) ) }}
+              <li><a href="/eawagrdm/" class="upstream_link">RDM Project<br>at Eawag</a></li> 
+	    {% endblock %}
           </ul>
         </nav>
       {% endblock %}
