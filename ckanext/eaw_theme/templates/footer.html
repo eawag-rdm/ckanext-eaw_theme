@@ -12,11 +12,11 @@
 	  <a href="{{ h.url_for('disclaimer.disclaimer',
 	  typ='legal_notice') }}">Legal Notice</a>
 	</div>
-	<div class="col-md-2">
+	<div class="col-md-1">
 	  <a href="{{ h.url_for('disclaimer.disclaimer',
 	  typ='liability') }}">Liability</a>
 	</div>
-	<div class="col-md-2">
+	<div class="col-md-1">
 	  <a href="{{ h.url_for('disclaimer.disclaimer',
 	  typ='copyright') }}">Copyright</a>
 	</div>
@@ -34,6 +34,10 @@
           by</strong> <a class="hide-text ckan-footer-logo"
           href="http://ckan.org" target="_blank">CKAN</a>{% endtrans
           %}</p>
+	</div>
+	<div class="col-md-2 attribution">
+	  <a href="https://eawag.ch" target="_blank">
+	    <img src="/base/images/eawag_blueish.svg" width="180px"/></a>
 	</div>
         {% endblock %}
     </div>
