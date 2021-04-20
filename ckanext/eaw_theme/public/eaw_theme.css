@@ -311,11 +311,8 @@ li.resource-item:hover {
   height: 400px;
 }
 
-/* vertical line btween secondary & primary content */
-@media (min-width: 768px) {
-  .wrapper {
-    background-image: None;
-  }
+.wrapper::before {
+  border-right: 0;
 }
 
 /* horizontal lines betwen facets */
