@@ -266,9 +266,10 @@ textarea.eaw_with_infobutton {
 .additional-info td {
   width: 500px;
 }
-.additional-info table {
-  table-layout: auto;
-}
+
+/* .additional-info table { */
+/*   table-layout: auto; */
+/* } */
 
 div.modal-help {
   font-size: large;
