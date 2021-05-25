@@ -265,9 +265,6 @@ textarea.eaw_with_infobutton {
 .additional-info td {
   width: 500px;
 }
-.additional-info table {
-  table-layout: auto;
-}
 
 div.modal-help {
   font-size: large;
@@ -406,4 +403,3 @@ a.doi-link {
   font-style: normal;
   content: " \f14c";
 }
-  
