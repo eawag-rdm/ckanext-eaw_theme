@@ -104,7 +104,7 @@ def eaw_theme_geteawuser(username):
         try:
             last, first = fullname.split(',')
         except (ValueError, AttributeError):
-            if not isinstance(fullname, basestring):
+            if not isinstance(fullname, str):
                 fullname = 'not a string'
             logger.warn(u'User Fullname "{}" does not '
                         'have standard format ("lastname, firstname")'
