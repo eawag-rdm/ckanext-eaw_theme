@@ -2,12 +2,12 @@
 
 {% block scripts %}
   {{ super() }}
-  {% asset 'ckanext-eaw_theme/eaw_theme_js' %}
+  {% asset 'eaw_theme/eaw_theme_js' %}
 {% endblock scripts %}
 
 {% block styles %}
 {# nextline to prevent FOUC (flash on unstyled content) #}
 <script>document.documentElement.className += 'js-on';</script>
   {{ super() }}
-  {% asset 'ckanext-eaw_theme/eaw_theme_css' %}
+  {% asset 'eaw_theme/eaw_theme_css' %}
 {% endblock styles %}

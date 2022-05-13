@@ -3,8 +3,8 @@ eaw_theme_js: # name of the asset
   output: ckanext-eaw_theme/%(version)s_eaw_theme.js  # actual path, where the generated file will be stored
   contents: # list of files that are included in the asset
     - clickwholedivs.js
-      #    - andorswitch.js
-      #    - eaw_theme_hidewithjs.js
+    - andorswitch.js
+    - eaw_theme_hidewithjs.js
 
 eaw_theme_css:  # name of asset
   output: ckanext-eaw_theme/%(version)s_eaw_theme.css  # actual path, where generated file will be stored
