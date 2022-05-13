@@ -9,15 +9,6 @@ import re
 
 logger = logging.getLogger(__name__)
 
-# This is a workaround issue  #2713
-# https://github.com/ckan/ckan/issues/2713
-def new_facet_dict(facet_dict, new_facets):
-    for e in facet_dict:
-        del facet_dict[e]
-    for k, v in new_facets:
-        facet_dict[k] = v
-    return facet_dict
-
 # template helper functions
 
 def eaw_theme_get_spatial_query_default_extent():
@@ -91,14 +82,14 @@ def eaw_theme_geteawuser(username):
 
     """
 
-    pic_url_prefix = (u"https://www.eawag.ch/fileadmin/user_upload/"
+    pic_url_prefix = ("https://www.eawag.ch/fileadmin/user_upload/"
                       "tx_userprofiles/profileImages/")
     def geteawhp(fullname):
         "Returns the Eawag homepage of somebody"
-        hp_url_prefix = (u'https://www.eawag.ch/en/aboutus/portrait/'
+        hp_url_prefix = ('https://www.eawag.ch/en/aboutus/portrait/'
                          'organisation/staff/profile/')
         # If we can't derive the Eawag personal page, go to search page.
-        hp_url_fallback_template = (u'https://www.eawag.ch/en/suche/'
+        hp_url_fallback_template = ('https://www.eawag.ch/en/suche/'
                                     '?q=__NAME__&tx_solr[filter][0]'
                                     '=filtertype%3A3')
         try:
@@ -106,7 +97,7 @@ def eaw_theme_geteawuser(username):
         except (ValueError, AttributeError):
             if not isinstance(fullname, str):
                 fullname = 'not a string'
-            logger.warn(u'User Fullname "{}" does not '
+            logger.warn('User Fullname "{}" does not '
                         'have standard format ("lastname, firstname")'
                         .format(fullname))
             return hp_url_fallback_template.replace('__NAME__', fullname)
@@ -132,6 +123,25 @@ class Eaw_ThemePlugin(plugins.SingletonPlugin, DefaultTranslation):
     plugins.implements(plugins.ITemplateHelpers)
     plugins.implements(plugins.IPackageController, inherit=True)
     
+    # step 2 of changing to webassets (https://docs.ckan.org/en/2.9/theming/webassets.html)
+    #########
+    def update_config(self, config):
+
+    # Add this plugin's templates dir to CKAN's extra_template_paths, so
+    # that CKAN will use this plugin's custom templates.
+        tk.add_template_directory(config, 'templates')
+
+    # Add this plugin's public dir to CKAN's extra_public_paths, so
+    # that CKAN will use this plugin's custom static files.
+        tk.add_public_directory(config, 'public')
+
+    # Register this plugin's assets directory with CKAN.
+    # Here, 'assets' is the path to the webassets directory
+    # (relative to this plugin.py file), and 'example_theme' is the name
+    # that we'll use to refer to this assets directory from CKAN
+    # templates.
+        tk.add_resource('assets', 'eaw_theme')
+    ##########
 
     # IConfigurer
     def update_config(self, config_):
@@ -142,32 +152,32 @@ class Eaw_ThemePlugin(plugins.SingletonPlugin, DefaultTranslation):
 
     # IFacets
     def dataset_facets(self, facet_dict, package_type):
-         new_facets = [('organization', u'Organizations'),
-                       ('groups', u'Projects'),
-                       ('tags', u'Keywords'),
-                       ('variables', u'Variables'),
-                       ('systems', u'Systems'),
-                       ('substances', u'Substances'),
-                       ('taxa', u'Taxa')]
-         return new_facet_dict(facet_dict, new_facets)
+         new_facets = [('organization', 'Organizations'),
+                       ('groups', 'Projects'),
+                       ('tags', 'Keywords'),
+                       ('variables', 'Variables'),
+                       ('systems', 'Systems'),
+                       ('substances', 'Substances'),
+                       ('taxa', 'Taxa')]
+         return OrderedDict(new_facets)
 
     def group_facets(self, facet_dict, group_type, package_type):
-        new_facets =  [('organization', u'Organizations'),
-                       ('tags', u'Keywords'),
-                       ('variables', u'Variables'),
-                       ('systems', u'Systems'),
-                       ('substances', u'Substances'),
-                       ('taxa', u'Taxa')]
-        return new_facet_dict(facet_dict, new_facets)
+         new_facets =  [('organization', 'Organizations'),
+                       ('tags', 'Keywords'),
+                       ('variables', 'Variables'),
+                       ('systems', 'Systems'),
+                       ('substances', 'Substances'),
+                       ('taxa', 'Taxa')]
+         return OrderedDict(new_facets)
 
     def organization_facets(self, facet_dict, organization_type, package_type):
-        new_facets =  [('groups', u'Projects'),
-                       ('tags', u'Keywords'),
-                       ('variables', u'Variables'),
-                       ('systems', u'Systems'),
-                       ('substances', u'Substances'),
-                       ('taxa', u'Taxa')]
-        return new_facet_dict(facet_dict, new_facets)
+         new_facets =  [('groups', 'Projects'),
+                       ('tags', 'Keywords'),
+                       ('variables', 'Variables'),
+                       ('systems', 'Systems'),
+                       ('substances', 'Substances'),
+                       ('taxa', 'Taxa')]
+         return OrderedDict(new_facets)
 
 
     #ITemplateHelpers
