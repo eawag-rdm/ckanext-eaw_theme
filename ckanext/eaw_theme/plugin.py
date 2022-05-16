@@ -125,30 +125,30 @@ class Eaw_ThemePlugin(plugins.SingletonPlugin, DefaultTranslation):
     
     # step 2 of changing to webassets (https://docs.ckan.org/en/2.9/theming/webassets.html)
     #########
-    def update_config(self, config):
+    #def update_config(self, config):
 
     # Add this plugin's templates dir to CKAN's extra_template_paths, so
     # that CKAN will use this plugin's custom templates.
-        tk.add_template_directory(config, 'templates')
+    #    tk.add_template_directory(config, 'templates')
 
     # Add this plugin's public dir to CKAN's extra_public_paths, so
     # that CKAN will use this plugin's custom static files.
-        tk.add_public_directory(config, 'public')
+    #    tk.add_public_directory(config, 'public')
 
     # Register this plugin's assets directory with CKAN.
     # Here, 'assets' is the path to the webassets directory
     # (relative to this plugin.py file), and 'example_theme' is the name
     # that we'll use to refer to this assets directory from CKAN
     # templates.
-        tk.add_resource('assets', 'eaw_theme')
+    #    tk.add_resource('assets', 'eaw_theme')
     ##########
 
-    # IConfigurer
-    def update_config(self, config_):
-        tk.add_template_directory(config_, 'templates')
-        tk.add_public_directory(config_, 'public')
-        tk.add_resource('fanstatic/vendor/bootstrap-switch', 'bootstrap-switch')
-        tk.add_resource('fanstatic', 'eaw_theme')
+    # IConfigurer (here assets was fanstatic)
+    def update_config(self, config):
+        tk.add_template_directory(config, 'templates')
+        tk.add_public_directory(config, 'public')
+        tk.add_resource('assets/vendor/bootstrap-switch', 'bootstrap-switch')
+        tk.add_resource('assets', 'eaw_theme')
 
     # IFacets
     def dataset_facets(self, facet_dict, package_type):
