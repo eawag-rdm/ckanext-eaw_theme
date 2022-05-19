@@ -7,7 +7,7 @@ eaw_theme_js: # name of the asset
     - js/eaw_theme_hidewithjs.js
 
 eaw_theme_css:  
-  filters:cssrewrite
+  filters: cssrewrite
   output: ckanext-eaw_theme/%(version)s_eaw_theme.css  
   contents:
     - styles/eaw_theme.css
