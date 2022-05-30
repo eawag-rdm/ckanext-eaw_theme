@@ -137,8 +137,7 @@ class Eaw_ThemePlugin(plugins.SingletonPlugin, DefaultTranslation):
     def update_config(self, config_):
         tk.add_template_directory(config_, 'templates')
         tk.add_public_directory(config_, 'public')
-        tk.add_resource('fanstatic/vendor/bootstrap-switch', 'bootstrap-switch')
-        tk.add_resource('fanstatic', 'eaw_theme')
+        tk.add_resource('assets', 'eaw_theme_assets')
 
     # IFacets
     def dataset_facets(self, facet_dict, package_type):
