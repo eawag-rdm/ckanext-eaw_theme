@@ -22,7 +22,7 @@
 		{# Replace gravatar with Eawag pic #}
                 <a href="{{ h.url_for('user.read', id=c.userobj.name) }}" class="image" title="{{ _('View profile') }}">
 		  {%- set username = c.userobj.name if c and c.userobj else '' -%}
-		  {%- set eawuser = h.eaw_schema_geteawuser(username) -%}
+		  {%- set eawuser = h.eaw_helpers_geteawuser(username) -%}
 		  <img src="{{ eawuser.pic_url }}" width="22px" />
                   <span class="username">{{ c.userobj.display_name }}</span>
                 </a>

@@ -3,7 +3,7 @@
 {# Remove gravatar image #}
 
 {% block user_image %}
-{%- set eawuser = h.eaw_schema_geteawuser(user.name) -%}
+{%- set eawuser = h.eaw_helpers_geteawuser(user.name) -%}
 <div class="image"><img src="{{ eawuser.pic_url }}" /></div>
 {% endblock %}
 
