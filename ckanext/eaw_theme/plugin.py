@@ -9,15 +9,6 @@ import re
 
 logger = logging.getLogger(__name__)
 
-# This is a workaround issue  #2713
-# https://github.com/ckan/ckan/issues/2713
-def new_facet_dict(facet_dict, new_facets):
-    for e in facet_dict:
-        del facet_dict[e]
-    for k, v in new_facets:
-        facet_dict[k] = v
-    return facet_dict
-
 # template helper functions
 
 def eaw_theme_get_spatial_query_default_extent():
@@ -148,7 +139,7 @@ class Eaw_ThemePlugin(plugins.SingletonPlugin, DefaultTranslation):
                        ('systems', 'Systems'),
                        ('substances', 'Substances'),
                        ('taxa', 'Taxa')]
-         return new_facet_dict(facet_dict, new_facets)
+         return OrderedDict(new_facets)
 
     def group_facets(self, facet_dict, group_type, package_type):
         new_facets =  [('organization', 'Organizations'),
@@ -157,7 +148,7 @@ class Eaw_ThemePlugin(plugins.SingletonPlugin, DefaultTranslation):
                        ('systems', 'Systems'),
                        ('substances', 'Substances'),
                        ('taxa', 'Taxa')]
-        return new_facet_dict(facet_dict, new_facets)
+        return OrderedDict(new_facets)
 
     def organization_facets(self, facet_dict, organization_type, package_type):
         new_facets =  [('groups', 'Projects'),
@@ -166,7 +157,7 @@ class Eaw_ThemePlugin(plugins.SingletonPlugin, DefaultTranslation):
                        ('systems', 'Systems'),
                        ('substances', 'Substances'),
                        ('taxa', 'Taxa')]
-        return new_facet_dict(facet_dict, new_facets)
+        return OrderedDict(new_facets)
 
 
     #ITemplateHelpers
