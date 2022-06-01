@@ -127,7 +127,7 @@ class Eaw_ThemePlugin(plugins.SingletonPlugin, DefaultTranslation):
     # IConfigurer
     def update_config(self, config_):
         tk.add_template_directory(config_, 'templates')
-        tk.add_public_directory(config_, 'public')
+        tk.add_public_directory(config_, 'public/images')
         tk.add_resource('assets', 'eaw_theme_assets')
 
     # IFacets
