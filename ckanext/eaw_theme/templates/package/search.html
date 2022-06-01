@@ -4,10 +4,11 @@
 {% block subtitle %}{{ _("Datasets") }}{% endblock %}
 
 {% block breadcrumb_content %}
-  <li class="active">{{ h.nav_link(_('Datasets'), controller='package', action='search', highlight_actions = 'new index') }}</li>
+  <li class="active">{{ h.nav_link(_(dataset_type.title() + 's'), named_route='%s.search' % dataset_type, highlight_actions = 'new index') }}</li>
 {% endblock %}
 
 
+{# TODO , temporarily commented out
 {% block pre_primary %}
   <div>
     {% snippet "spatial/snippets/spatial_query.html", default_extent=h.eaw_theme_get_spatial_query_default_extent() %}
@@ -15,13 +16,14 @@
   {{ super() }}
 {% endblock %}
 
+#}
 {% block primary_content %}
   <section class="module">
     <div class="module-content">
       {% block page_primary_action %}
         {% if h.check_access('package_create') %}
           <div class="page_primary_action">
-            {% link_for _('Add Dataset'), controller='package', action='new', class_='btn btn-primary', icon='plus-square' %}
+	    {% snippet "snippets/add_dataset.html" %}
           </div>
         {% endif %}
       {% endblock %}
