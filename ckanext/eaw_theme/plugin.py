@@ -67,10 +67,12 @@ def eaw_theme_patch_linked_user(user, maxlength=0, avatar=20):
         logger.warn("Could not find Eawag user picture")
         eawuserpic = ''
     else:
-        res = re.sub('src="[^"]*?"',
-                     'src={}'.format(eawuserpic),
-                     res, flags=re.S)
-    return res
+        logger.warn(res)
+        res = tk.literal(re.sub('src="[^"]*?"',
+                     'src="{}"'.format(eawuserpic),
+                     res, flags=re.S))
+        logger.warn(res)
+    return tk.literal(res)
 
 # A copy & paste from ckanext-eaw_schema (eaw_schema_geteawuser)
 # for better modularity
