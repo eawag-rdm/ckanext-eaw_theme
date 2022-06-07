@@ -67,10 +67,12 @@ def eaw_theme_patch_linked_user(user, maxlength=0, avatar=20):
         logger.warn("Could not find Eawag user picture")
         eawuserpic = ''
     else:
-        res = re.sub('src="[^"]*?"',
-                     'src={}'.format(eawuserpic),
-                     res, flags=re.S)
-    return res
+        logger.warn(res)
+        res = tk.literal(re.sub('src="[^"]*?"',
+                     'src="{}"'.format(eawuserpic),
+                     res, flags=re.S))
+        logger.warn(res)
+    return tk.literal(res)
 
 # A copy & paste from ckanext-eaw_schema (eaw_schema_geteawuser)
 # for better modularity
@@ -123,32 +125,11 @@ class Eaw_ThemePlugin(plugins.SingletonPlugin, DefaultTranslation):
     plugins.implements(plugins.ITemplateHelpers)
     plugins.implements(plugins.IPackageController, inherit=True)
     
-    # step 2 of changing to webassets (https://docs.ckan.org/en/2.9/theming/webassets.html)
-    #########
-    #def update_config(self, config):
-
-    # Add this plugin's templates dir to CKAN's extra_template_paths, so
-    # that CKAN will use this plugin's custom templates.
-    #    tk.add_template_directory(config, 'templates')
-
-    # Add this plugin's public dir to CKAN's extra_public_paths, so
-    # that CKAN will use this plugin's custom static files.
-    #    tk.add_public_directory(config, 'public')
-
-    # Register this plugin's assets directory with CKAN.
-    # Here, 'assets' is the path to the webassets directory
-    # (relative to this plugin.py file), and 'example_theme' is the name
-    # that we'll use to refer to this assets directory from CKAN
-    # templates.
-    #    tk.add_resource('assets', 'eaw_theme')
-    ##########
-
-    # IConfigurer (here assets was fanstatic)
-    def update_config(self, config):
-        tk.add_template_directory(config, 'templates')
-        tk.add_public_directory(config, 'public')
-        tk.add_resource('assets/vendor/bootstrap-switch', 'bootstrap-switch')
-        tk.add_resource('assets', 'eaw_theme')
+    # IConfigurer
+    def update_config(self, config_):
+        tk.add_template_directory(config_, 'templates')
+        tk.add_public_directory(config_, 'public/images')
+        tk.add_resource('assets', 'eaw_theme_assets')
 
     # IFacets
     def dataset_facets(self, facet_dict, package_type):
@@ -162,22 +143,22 @@ class Eaw_ThemePlugin(plugins.SingletonPlugin, DefaultTranslation):
          return OrderedDict(new_facets)
 
     def group_facets(self, facet_dict, group_type, package_type):
-         new_facets =  [('organization', 'Organizations'),
+        new_facets =  [('organization', 'Organizations'),
                        ('tags', 'Keywords'),
                        ('variables', 'Variables'),
                        ('systems', 'Systems'),
                        ('substances', 'Substances'),
                        ('taxa', 'Taxa')]
-         return OrderedDict(new_facets)
+        return OrderedDict(new_facets)
 
     def organization_facets(self, facet_dict, organization_type, package_type):
-         new_facets =  [('groups', 'Projects'),
+        new_facets =  [('groups', 'Projects'),
                        ('tags', 'Keywords'),
                        ('variables', 'Variables'),
                        ('systems', 'Systems'),
                        ('substances', 'Substances'),
                        ('taxa', 'Taxa')]
-         return OrderedDict(new_facets)
+        return OrderedDict(new_facets)
 
 
     #ITemplateHelpers

@@ -4,9 +4,8 @@
 {% block subtitle %}{{ _("Datasets") }}{% endblock %}
 
 {% block breadcrumb_content %}
-  <li class="active">{{ h.nav_link(_('Datasets'), controller='dataset', action='search', highlight_actions = 'new index') }}</li>
+  <li class="active">{{ h.nav_link(_(dataset_type.title() + 's'), named_route='%s.search' % dataset_type, highlight_actions = 'new index') }}</li>
 {% endblock %}
-
 
 {% block pre_primary %}
   <div>
@@ -21,7 +20,7 @@
       {% block page_primary_action %}
         {% if h.check_access('package_create') %}
           <div class="page_primary_action">
-            {% link_for _('Add Dataset'), controller='dataset', action='new', class_='btn btn-primary', icon='plus-square' %}
+	    {% snippet "snippets/add_dataset.html" %}
           </div>
         {% endif %}
       {% endblock %}

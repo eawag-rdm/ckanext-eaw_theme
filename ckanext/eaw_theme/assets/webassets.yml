@@ -1,43 +1,12 @@
-eaw_theme_js: # name of the asset
-  filters: rjsmin # preprocessor for files. Optional
-  output: ckanext-eaw_theme/%(version)s_eaw_theme.js  # actual path, where the generated file will be stored
-  contents: # list of files that are included in the asset
-    - js/clickwholedivs.js
-    - js/andorswitch.js
-    - js/eaw_theme_hidewithjs.js
-
-eaw_theme_css:  
-  filters:cssrewrite
-  output: ckanext-eaw_theme/%(version)s_eaw_theme.css  
+eaw_theme-css:
   contents:
-    - styles/eaw_theme.css
-
-clickwholedivs_js: 
-  filters: rjsmin 
-  output: ckanext-eaw_theme/%(version)s_clickwholedivs.js
-  contents:
-    - js/clickwholedivs.js
-
-andorswitch_js: 
-  filters: rjsmin 
-  output: ckanext-eaw_theme/%(version)s_andorswitch.js
-  contents: 
-    - js/andorswitch.js
-
-eaw_theme_hidewithjs_js: 
-  filters: rjsmin
-  output: ckanext-eaw_theme/%(version)s_eaw_theme_hidewithjs.js  
-  contents:
-    - js/eaw_theme_hidewithjs.js
-
-bootstrap-switch_js:
-  filters: rjsmin 
-  output: ckanext-eaw_theme/%(version)s_bootstrap-switch.js
-  contents:
-    - vendor/bootstrap-switch/bootstrap-switch.js 
-
-bootstrap-switch_css:
+    - css/eaw_theme.css
+  output: eaw_theme_assets/%(version)s_eaw_theme.css
   filters: cssrewrite
-  output: ckanext-eaw_theme/%(version)s_bootstrap-switch.css
+
+clickwholedivs-js:
   contents:
-    - vendor/bootstrap-switch/bootstrap-switch.css  
+    - clickwholedivs.js
+  filters: rjsmin  
+  output: eaw_theme_assets/%(version)s_clickwholedivs.js
+  
