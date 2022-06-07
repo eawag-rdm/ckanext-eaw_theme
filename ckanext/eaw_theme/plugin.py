@@ -125,7 +125,6 @@ class Eaw_ThemePlugin(plugins.SingletonPlugin, DefaultTranslation):
     plugins.implements(plugins.ITemplateHelpers)
     plugins.implements(plugins.IPackageController, inherit=True)
     
-
     # IConfigurer
     def update_config(self, config_):
         tk.add_template_directory(config_, 'templates')
