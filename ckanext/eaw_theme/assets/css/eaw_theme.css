@@ -280,9 +280,11 @@ div.modal-help {
   left:auto;
   margin-left: -200px;
 }
-.modal-help .modal-body {
-  max-height: 800px;
-}
+
+/* This gave problems during 2.9.5-update */
+/* .modal-help .modal-body { */
+/*   max-height: 800px; */
+/* } */
 
 /* eigenj's comment here: */
 /* https://github.com/nostalgiaz/bootstrap-switch/issues/469#issuecomment-226196951 */
