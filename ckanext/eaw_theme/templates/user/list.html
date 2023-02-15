@@ -1,0 +1,7 @@
+{% ckan_extends %}
+
+{% block users_list_inner %}
+  {% for user in page.items %}
+    <li>{{ h.eaw_theme_patch_linked_user(user['name'], maxlength=20) }}</li>
+  {% endfor %}
+{% endblock %}

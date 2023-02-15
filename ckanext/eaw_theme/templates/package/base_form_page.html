@@ -1,0 +1,22 @@
+{% ckan_extends %}
+
+  {% block info_module %}
+    <section class="module module-narrow module-shallow">
+      <h2 class="module-heading"><i class="fa fa-info-circle"></i> {{ _('What are datasets?') }}</h2>
+      <div class="module-content">
+        <p>
+          {% trans %}
+	    <p>Packages are the primary units of contents in the Eawag Research Data Platform.</p>
+            <p>A package is a collection of
+	      <ol>
+		<li><i><b>resources</b></i> (files or links) and</li>
+		<li><i><b>metadata</b></i>, such as abstract, keywords, author, ...</li>
+	      </ol>
+	    </p>
+	    <p>Packages are what users find when searching for data.</p>
+	    <p>Packages have a permanent URL.</p>
+          {% endtrans %}
+        </p>
+      </div>
+    </section>
+  {% endblock %}

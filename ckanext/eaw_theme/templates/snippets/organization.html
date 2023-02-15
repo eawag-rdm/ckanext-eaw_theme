@@ -1,0 +1,15 @@
+{#
+Removes "There is no description for this organization" in the sidebar
+if there is no description for the organizationin
+#}
+
+{% ckan_extends %}
+
+{% block description %}
+{% if organization.description %}
+  <p>
+  {{ h.markdown_extract(organization.description, 180) }}
+  {% link_for _('read more'), controller='organization', action='about', id=organization.name %}
+  </p>
+{% endif %}
+{% endblock %}

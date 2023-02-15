@@ -1,0 +1,55 @@
+<div style="font-size:120%;">
+<h2 style="font-size:140%;text-align:center;">The Eawag Research Data Institutional Repository (ERIC)</h2>
+
+<p> This is the new release of Eawag's research data
+repository. It features a <b>new meta-data schema</b> that is better adapted to
+  user's needs, <b>improved workflow support</b>, <b>new functionality</b> such
+  as <i>restricted resources</i>, <b>usability improvements</b> and bug
+fixes.</p>
+
+<div style="border:1px;border-style:solid;padding:5px 30px 5px 30px;box-shadow:10px 10px;background-color:yellow; margin:30px">
+  <h3>Terms of Use:</h3>
+<ol>
+  <li>Use of data in this repository  only with permission from <b>Author</b> or <b>Usage Contact</b>!</li>
+  <li>Making available data in this repository outside Eawag only with permission from <b>Author</b> or <b>Usage Contact</b>!</li>
+</ol>
+
+</div>
+      <!-- to <a href="mailto:rdm@eawag.ch">rdm@eawag.ch</a>.</li> -->
+<h3>Underlying software</h3>
+<ul>
+  <li>The CKAN has been upgraded from version 2.5.2 to version
+  2.7.3<a href="https://github.com/ckan/ckan/blob/ckan-2.7.3/CHANGELOG.rst"
+  target="_blank">
+      <i class="fa fa-external-link-square fa-lg"> </i></a>.</li>
+  <li>The search platform SOLR has been upgraded from version 5.3.1 to
+    version
+    6.5.0<a href="http://lucene.apache.org/solr/6_5_0/changes/Changes.html"
+    target="_blank"> <i class="fa fa-external-link-square
+			      fa-lg"></i></a>.</li>
+    <li>The database Postgres has been upgraded from version 9.4.15 to version 9.6.9
+      <a href="https://www.postgresql.org/docs/9.6/static/release-9-6-9.html"
+	 target="_blank"> <i class="fa fa-external-link-square
+	 fa-lg"></i></a>.</li>
+</ul>
+<h3>Server</h3>
+<p>Instead of on a single virtual machine (VM), Postgres and SOLR now
+run on a separate server. The storage backend is now connected to the
+new storage system at Eawag which provides a total storage capacity of
+  11 TB for ERIC.</p>
+
+<h3>Contact and more information</h3>
+<ul>
+  <li><a href="http://opendata.eawag.ch">Project homepage</a></li>
+  <li><a href="http://eawag-rdm.github.io/presentation_launch_event/index.html">Project presentation (old)</a></li>
+  <li><a href="https://github.com/eawag-rdm/eawag-ckan/issues">Submit bugs and feature requests at Github</a>, or</li>
+  <li><a href="mailto:rdm@eawag.ch">send email to rdm@eawag.ch</a></li>
+</ul>
+
+{% block secondary %}
+<div style="margin-bottom:-30px;margin-top:30px;">
+  hvw/2018-11-21
+</div>
+{% endblock %}
+
+

@@ -1,0 +1,15 @@
+{# Getting rid of calls to gravar.com #}
+<li class="item {{ activity.type|lower }}">
+  {% if activity.is_new %}
+    <span class="new" title="{{ _('New activity item') }}">{{ _('New activity item') }}</span>
+  {% endif %}
+  <i class="fa icon fa-{{ activity.icon }}"></i>
+  <p>
+    {% set newactor =  h.eaw_theme_patch_activity_actor(activity.data['actor']) |safe %}
+    {% set  _dummy = activity.data.update({'actor': newactor}) %} 
+    {{ h.literal(activity.msg.format(**activity.data)) }}   
+    <span class="date" title="{{ h.render_datetime(activity.timestamp, with_hours=True) }}">{{ h.time_ago_from_timestamp(activity.timestamp) }}</span>
+  </p>
+</li>
+
+
