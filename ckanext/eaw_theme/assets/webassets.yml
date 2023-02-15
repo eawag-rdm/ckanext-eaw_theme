@@ -1,12 +1,14 @@
-eaw_theme-css:
-  contents:
-    - css/eaw_theme.css
-  output: eaw_theme_assets/%(version)s_eaw_theme.css
-  filters: cssrewrite
+# eaw_theme-js:
+#   filter: rjsmin
+#   output: ckanext-eaw_theme/%(version)s-eaw_theme.js
+#   contents:
+#     - js/eaw_theme.js
+#   extra:
+#     preload:
+#       - base/main
 
-clickwholedivs-js:
-  contents:
-    - clickwholedivs.js
-  filters: rjsmin  
-  output: eaw_theme_assets/%(version)s_clickwholedivs.js
-  
+# eaw_theme-css:
+#   filter: cssrewrite
+#   output: ckanext-eaw_theme/%(version)s-eaw_theme.css
+#   contents:
+#     - css/eaw_theme.css

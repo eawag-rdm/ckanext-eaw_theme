@@ -1,0 +1,12 @@
+eaw_theme-css:
+  contents:
+    - css/eaw_theme.css
+  output: eaw_theme_assets/%(version)s_eaw_theme.css
+  filters: cssrewrite
+
+clickwholedivs-js:
+  contents:
+    - clickwholedivs.js
+  filters: rjsmin  
+  output: eaw_theme_assets/%(version)s_clickwholedivs.js
+  
