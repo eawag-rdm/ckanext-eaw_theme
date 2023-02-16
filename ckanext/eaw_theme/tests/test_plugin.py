@@ -50,4 +50,4 @@ To temporary patch the CKAN configuration for the duration of a test you can use
 import ckanext.eaw_theme.plugin as plugin
 
 def test_plugin():
-    pass
+    plugin.EawThemePlugin()

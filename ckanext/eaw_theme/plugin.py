@@ -1,4 +1,5 @@
 import ckan.plugins as plugins
+from ckan.lib.plugins import DefaultTranslation
 import ckan.plugins.toolkit as toolkit
 from ckanext.eaw_core.helpers import (
     eaw_theme_get_spatial_query_default_extent,
@@ -9,7 +10,7 @@ from ckanext.eaw_core.helpers import (
 )
 
 
-class EawThemePlugin(plugins.SingletonPlugin, plugins.DefaultTranslation):
+class EawThemePlugin(plugins.SingletonPlugin, DefaultTranslation):
     plugins.implements(plugins.ITranslation)
     plugins.implements(plugins.IConfigurer)
     plugins.implements(plugins.IFacets)
@@ -18,9 +19,9 @@ class EawThemePlugin(plugins.SingletonPlugin, plugins.DefaultTranslation):
 
     # IConfigurer
     def update_config(self, config_):
-        tk.add_template_directory(config_, 'templates')
-        tk.add_public_directory(config_, 'public')
-        tk.add_resource('assets', 'eaw_theme')
+        toolkit.add_template_directory(config_, 'templates')
+        toolkit.add_public_directory(config_, 'public')
+        toolkit.add_resource('assets', 'eaw_theme')
 
     # IFacets
     def dataset_facets(self, facet_dict, package_type):
@@ -63,7 +64,7 @@ class EawThemePlugin(plugins.SingletonPlugin, plugins.DefaultTranslation):
                 'eaw_theme_patch_activity_actor':
                     eaw_theme_patch_activity_actor,
                 'eaw_theme_geteawuser':
-                    eaw_theme_geteawuser,
+                    eaw_helpers_geteawuser,
                 'eaw_theme_patch_linked_user':
                     eaw_theme_patch_linked_user}
 
