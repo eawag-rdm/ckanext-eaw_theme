@@ -1,4 +1,5 @@
 import ckan.plugins as plugins
+from collections import OrderedDict
 from ckan.lib.plugins import DefaultTranslation
 import ckan.plugins.toolkit as toolkit
 from ckanext.eaw_core.helpers import (
