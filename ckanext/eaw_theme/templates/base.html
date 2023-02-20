@@ -2,12 +2,12 @@
 
 {% block styles %}
 {# nextline to prevent FOUC (flash on unstyled content) #}
-<script>document.documentElement.className += 'js-on';</script>
+{# <script>document.documentElement.className += 'js-on';</script> #}
   {{ super() }}
-{% asset 'eaw_theme_assets/eaw_theme-css' %}
+{% asset 'eaw_theme/eaw_theme-css' %}
 {% endblock %}
 
 {% block scripts %}
   {{ super() }}
-  {% asset 'eaw_theme_assets/clickwholedivs-js' %}
+  {% asset 'eaw_theme/eaw_theme-js' %}
 {%- endblock %}
