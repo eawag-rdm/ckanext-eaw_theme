@@ -1,19 +1,16 @@
 {% ckan_extends %}
-
 {# Remove gravatar image #}
-
 {% block user_image %}
-{%- set eawuser = h.eaw_helpers_geteawuser(user.name) -%}
-<div class="image"><img src="{{ eawuser.pic_url }}" /></div>
+    {%- set eawuser = h.eaw_helpers_geteawuser(user.name) -%}
+    <div class="image">
+        <img src="{{ eawuser.pic_url }}" />
+    </div>
 {% endblock %}
-
 {# Remove placeholder for about - test #}
 {% block user_about %}
-  {% if c.about_formatted %}
-    {{ c.about_formatted }}
-  {% else %}
-    <p class="empty">
-
-    </p>
-  {% endif %}
+    {% if c.about_formatted %}
+        {{ c.about_formatted }}
+    {% else %}
+        <p class="empty"></p>
+    {% endif %}
 {% endblock %}

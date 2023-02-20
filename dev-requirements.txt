@@ -1,1 +1,4 @@
 pytest-ckan
+djlint
+isort
+black

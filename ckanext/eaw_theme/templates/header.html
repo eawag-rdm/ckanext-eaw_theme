@@ -1,24 +1,21 @@
 {% ckan_extends %}
-
-
 {% block header_account_profile %}
-<li>
-  <a href="{{ h.url_for('user.read', id=c.userobj.name) }}" class="image" title="{{ _('View profile') }}">
-
-      {# Modification start; Original in comment; Replace gravatar with Eawag pic #}
-      {#
+    <li>
+        <a href="{{ h.url_for('user.read', id=c.userobj.name) }}"
+           class="image"
+           title="{{ _('View profile') }}">
+            {# Modification start; Original in comment; Replace gravatar with Eawag pic #}
+            {#
       {{ h.user_image((c.user if c and c.user else ''), size=22) }}
       #}
-      {%- set username = c.userobj.name if c and c.userobj else '' -%}
-      {%- set eawuser = h.eaw_helpers_geteawuser(username) -%}
-      <img src="{{ eawuser.pic_url }}" width="22px" />
-      <span class="username">{{ c.userobj.display_name }}</span>
-      {# Modification end #}
-
-  </a>
-</li>
+            {%- set username = c.userobj.name if c and c.userobj else '' -%}
+            {%- set eawuser = h.eaw_helpers_geteawuser(username) -%}
+            <img src="{{ eawuser.pic_url }}" width="22px" />
+            <span class="username">{{ c.userobj.display_name }}</span>
+            {# Modification end #}
+        </a>
+    </li>
 {% endblock %}
-
 {% block header_account_settings_link %}
     {# Modification start; Original in comment; Remove setting link in masthead #}
     {#
@@ -31,9 +28,8 @@
     #}
     {# Modification end #}
 {% endblock %}
-
 {% block header_account_notlogged %}
-<li>{% link_for _('Log in'), named_route='user.login' %}</li>
+    <li>{% link_for _('Log in'), named_route='user.login' %}</li>
     {# Modification start; Original in comment; Removed registration link #}
     {#
     {% if h.check_access('user_create') %}
@@ -42,17 +38,14 @@
     #}
     {# Modification end #}
 {% endblock %}
-
-
 {% block header_site_search %}
-  {# Modification start; Original in comment; Removed search in header #}
-  {#
+    {# Modification start; Original in comment; Removed search in header #}
+    {#
   <form class="d-flex site-search" action="{% url_for dataset_type ~ '.search' %}" method="get">
       <label class="d-none" for="field-sitewide-search">{% block header_site_search_label %}{{ h.humanize_entity_type('package', dataset_type, 'search_placeholder') or _('Search Datasets...') }}{% endblock %}</label>
       <input id="field-sitewide-search" class="form-control me-2"  type="text" name="q" placeholder="{{ _('Search') }}" aria-label="{{ h.humanize_entity_type('package', dataset_type, 'search_placeholder') or _('Search datasets...') }}"/>
       <button class="btn" type="submit" aria-label="{{ _('Submit') }}"><i class="fa fa-search"></i></button>
   </form>
   #}
-  {# Modification end #}
+    {# Modification end #}
 {% endblock %}
-

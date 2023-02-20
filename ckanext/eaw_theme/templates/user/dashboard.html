@@ -1,12 +1,12 @@
 {% ckan_extends %}
 {# Remove "Edit setting" button #}
 {% block page_header %}
-  <header class="module-content page-header hug">
-    <ul class="nav nav-tabs">
-          {{ h.build_nav_icon('dashboard.index', _('News feed')) }}
-          {{ h.build_nav_icon('dashboard.datasets', _('My Datasets')) }}
-          {{ h.build_nav_icon('dashboard.organizations', _('My Organizations')) }}
-          {{ h.build_nav_icon('dashboard.groups', _('My Groups')) }}
-    </ul>
-  </header>
+    <header class="module-content page-header hug">
+        <ul class="nav nav-tabs">
+            {{ h.build_nav_icon('dashboard.index', _('News feed')) }}
+            {{ h.build_nav_icon('dashboard.datasets', _('My Datasets')) }}
+            {{ h.build_nav_icon('dashboard.organizations', _('My Organizations')) }}
+            {{ h.build_nav_icon('dashboard.groups', _('My Groups')) }}
+        </ul>
+    </header>
 {% endblock %}
