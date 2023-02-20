@@ -49,5 +49,8 @@ To temporary patch the CKAN configuration for the duration of a test you can use
 """
 import ckanext.eaw_theme.plugin as plugin
 
+
+@pytest.mark.ckan_config("ckan.plugins", "eaw_theme")
+@pytest.mark.usefixtures("with_plugins")
 def test_plugin():
-    plugin.EawThemePlugin()
+    assert plugin_loaded("eaw_theme")
