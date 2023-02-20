@@ -5,9 +5,13 @@ if there is no description for the organizationin
 {% ckan_extends %}
 {% block description %}
     {% if organization.description %}
-        <p>
-            {{ h.markdown_extract(organization.description, 180) }}
-            {% link_for _('read more'), controller='organization', action='about', id=organization.name %}
-        </p>
+        <p class="description">{{ h.markdown_extract(organization.description, 180) }}</p>
+        <p class="read-more">{% link_for _('read more'), named_route=organization.type ~ '.about', id=organization.name %}</p>
+        {# Modification start; original below; section removed #}
+        {#
+      {% else %}
+        <p class="empty">{{ h.humanize_entity_type('organization', organization.type, 'no description') or _('There is no description for this organization') }}</p>
+    #}
+        {# Modification end #}
     {% endif %}
 {% endblock %}
