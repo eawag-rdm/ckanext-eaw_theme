@@ -2,49 +2,89 @@
 {# We want only rea Eawag usernames. #}
 {% ckan_extends %}
 {% block form %}
-    <form class="dataset-form form-horizontal add-member-form" method='post'>
-        <div class="row-fluid">
-            <div class="control-group control-medium">
-                {% if not user %}
-                    <p>
-                        {{ _('Search for the Eawag username below. It usually
-                        starts with the first letters of the new user\'s last
-                        name.') }}
-                    </p>
-                    <p>
-                        {{ _('If the user doesn\'t exist yet in the system, ask her
-                        or him to log in and out with the normal Eawag
-                        credentials once. This will create the user in Eric.') }}
-                    </p>
-                {% endif %}
-                <div class="controls">
-                    <label>{{ _('Eawag username')}}</label>
-                    {% if user %}
-                        <input type="hidden" name="username" value="{{ user.name }}" />
-                        <input id="username"
-                               name="username"
-                               type="text"
-                               value="{{ user.name }}"
-                               disabled="True"
-                               class="control-medium">
-                    {% else %}
-                        <input id="username"
-                               type="text"
-                               name="username"
-                               placeholder="{{ _('eawagusername') }}"
-                               value=""
-                               class="control-medium"
-                               data-module="autocomplete"
-                               data-module-source="/api/2/util/user/autocomplete?q=?">
+    <form class="dataset-form add-member-form" method='post'>
+        {{ h.csrf_input() }}
+        <div class="row">
+            <div class="col-md-5">
+                <div class="form-group control-medium">
+                    {# Modification start; original below #}
+                    {#
+                        <label class="form-label" for="username">{{ _('Existing User') }}</label>
+                        <p>{{ _('If you wish to add an existing user, search for their username below.') }}</p>
+                    #}
+                    {% if not user %}
+                        <p>
+                            {{ _('Search for the Eawag username below. It usually
+                            starts with the first letters of the new user\'s last
+                            name.') }}
+                        </p>
+                        <p>
+                            {{ _('If the user doesn\'t exist yet in the system, ask her
+                            or him to log in and out with the normal Eawag
+                            credentials once. This will create the user in Eric.') }}
+                        </p>
+                        {# Modification end #}
                     {% endif %}
+                    <div class="controls">
+                        {# Modification start; this was added #}
+                        <label>{{ _('Eawag username')}}</label>
+                        {# Modification end #}
+                        {% if user %}
+                            <input type="hidden" name="username" value="{{ user.name }}" />
+                            <input id="username"
+                                   name="username"
+                                   type="text"
+                                   value="{{ user.name }}"
+                                   disabled="True"
+                                   class="form-control">
+                        {% else %}
+                            {# Modification start; original in comment; placeholder changed #}
+                            {#
+                                <input id="username" type="text" name="username" placeholder="{{ _('Username') }}" value="" class="control-medium" data-module="autocomplete" data-module-source="/api/2/util/user/autocomplete?ignore_self=true&q=?">
+                            #}
+                            <input id="username"
+                                   type="text"
+                                   name="username"
+                                   placeholder="{{ _('eawagusername') }}"
+                                   value=""
+                                   class="control-medium"
+                                   data-module="autocomplete"
+                                   data-module-source="/api/2/util/user/autocomplete?ignore_self=true&q=?">
+                            {# Modification end #}
+                        {% endif %}
+                    </div>
                 </div>
             </div>
+            {# Modification start; original below; section deleted #}
+            {#
+            {% if not user %}
+              <div class="col-md-2 add-member-or-wrap">
+                <div class="add-member-or">{{ _('or') }}</div>
+              </div>
+              <div class="col-md-5">
+                <div class="form-group control-medium">
+                  <label class="form-label" for="email">{{ _('New User') }}</label>
+                  <p>{{ _('If you wish to invite a new user, enter their email address.') }}</p>
+                  <div class="controls">
+                    <input id="email" type="email" name="email" class="form-control" placeholder="{{ _('Email address') }}">
+                  </div>
+                </div>
+              </div>
+              {% endif %}
+            #}
+            {# Modification end #}
         </div>
-        {% set format_attrs = {'data-module': 'autocomplete'} %}
-        {{ form.select('role', label=_('Role'), options=c.roles, selected=c.user_role, error='', attrs=format_attrs) }}
+        {% if user and user.name == c.user and user_role == 'admin' %}
+            {% set format_attrs = {'data-module': 'autocomplete', 'disabled': 'disabled'} %}
+            {{ form.select('role', label=_('Role'), options=roles, selected=user_role, error='', attrs=format_attrs) }}
+            {{ form.hidden('role', value=user_role) }}
+        {% else %}
+            {% set format_attrs = {'data-module': 'autocomplete'} %}
+            {{ form.select('role', label=_('Role'), options=roles, selected=user_role, error='', attrs=format_attrs) }}
+        {% endif %}
         <div class="form-actions">
             {% if user %}
-                <a href="{% url_for controller='organization', action='member_delete', id=c.group_dict.id, user=user.id %}"
+                <a href="{{ h.url_for(group_type + '.member_delete', id=group_dict.id, user=user.id) }}"
                    class="btn btn-danger pull-left"
                    data-module="confirm-action"
                    data-module-content="{{ _('Are you sure you want to delete this member?') }}">{{ _('Delete') }}</a>
