@@ -6,6 +6,14 @@
         </h2>
         <div class="module-content">
             <p>
+                {# Modification start; original below #}
+                {#
+                  {% trans %}
+                  A CKAN Dataset is a collection of data resources (such as files),
+                  together with a description and other information, at a fixed URL.
+                  Datasets are what users see when searching for data.
+                  {% endtrans %}
+                #}
                 {% trans %}
                 <p>Packages are the primary units of contents in the Eawag Research Data Platform.</p>
                 <p>
@@ -22,6 +30,7 @@
                 <p>Packages are what users find when searching for data.</p>
                 <p>Packages have a permanent URL.</p>
             {% endtrans %}
+            {# Modification end #}
         </p>
     </div>
 </section>
