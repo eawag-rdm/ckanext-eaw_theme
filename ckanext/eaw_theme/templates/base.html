@@ -1,7 +1,7 @@
 {% ckan_extends %}
 {% block styles %}
     {# nextline to prevent FOUC (flash on unstyled content) #}
-    {# <script>document.documentElement.className += 'js-on';</script> #}
+    <script>document.documentElement.className += 'js-on';</script>
     {{ super() }}
     {% asset 'eaw_theme/eaw_theme-css' %}
 {% endblock %}

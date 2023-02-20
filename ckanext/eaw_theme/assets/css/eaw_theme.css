@@ -31,7 +31,7 @@
 }
 
 .account-masthead {
-  background: #005d7a url("/bg.png");
+  background: #005d7a url("../../public/images/bg.png");
 }
 
 a.logo img {
@@ -41,7 +41,7 @@ a.logo img {
 }
 
 div.homepage.layout-3 {
-  background: url("/airbubbles.jpg");
+  background: url("../../public/images/airbubbles.jpg");
   background-size: 100%;
 }
 
@@ -49,7 +49,7 @@ div.homepage.layout-3 {
   [role=main],
   .main {
     padding-top: 10px;
-    background: url("/bg.png");
+    background: url("../../public/images/bg.png");
   }
 }
 
