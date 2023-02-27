@@ -28,42 +28,50 @@
     <ul>
         <li>
             The CKAN has been upgraded from version 2.7.3 to version
-            2.10.0<a href="https://github.com/ckan/ckan/blob/ckan-2.10.0/CHANGELOG.rst"
-   target="_blank">
-            <i class="fa fa-external-link-square fa-lg"> </i></a>.
-            </li>
-            <li>
-                The search platform SOLR has been upgraded from version 6.5.0 to
-                version
-                8.11.2<a href="http://lucene.apache.org/solr/8_11_2/changes/Changes.html"
-   target="_blank"> <i class="fa fa-external-link-square fa-lg"></i></a>.
-            </li>
-            <li>
-                The database Postgres has been upgraded from version 9.6.9 to version 15.2.
-                <a href="https://www.postgresql.org/docs/15/release-15-2.html"
-                   target="_blank"> <i class="fa fa-external-link-square fa-lg"></i></a>.
-            </li>
-        </ul>
-        <h3>Server</h3>
-        <p>
-            Instead of on a single virtual machine (VM), Postgres and SOLR now
-            run on a separate server. The storage backend is now connected to the
-            new storage system at Eawag which provides a total storage capacity of
-            11 TB for ERIC.
-        </p>
-        <h3>Contact and more information</h3>
-        <ul>
-            <li>
-                <a href="http://opendata.eawag.ch">Project homepage</a>
-            </li>
-            <li>
-                <a href="http://eawag-rdm.github.io/presentation_launch_event/index.html">Project presentation (old)</a>
-            </li>
-            <li>
-                <a href="https://github.com/eawag-rdm/eawag-ckan/issues">Submit bugs and feature requests at Github</a>, or
-            </li>
-            <li>
-                send email to <a href="mailto:rdm@eawag.ch">rdm@eawag.ch</a>
-            </li>
-        </ul>
-        {% block secondary %}<div style="margin-bottom:0px;margin-top:30px;">Christian Foerster/2023-03-31</div>{% endblock %}
+            2.10.0
+            <a href="https://github.com/ckan/ckan/blob/ckan-2.10.0/CHANGELOG.rst"
+               target="_blank">
+                <i class="fa fa-external-link-square fa-lg"/>
+            </a>.
+        </li>
+        <li>
+            The search platform SOLR has been upgraded from version 6.5.0 to
+            version
+            8.11.2
+            <a href="https://lucene.apache.org/solr/8_11_2/changes/Changes.html"
+               target="_blank">
+                <i class="fa fa-external-link-square fa-lg"/>
+            </a>.
+        </li>
+        <li>
+            The database Postgres has been upgraded from version 9.6.9 to version 15.2.
+            <a href="https://www.postgresql.org/docs/15/release-15-2.html"
+               target="_blank">
+                <i class="fa fa-external-link-square fa-lg"/>
+            </a>.
+        </li>
+    </ul>
+    <h3>Server</h3>
+    <p>
+        Instead of on a single virtual machine (VM), Postgres and SOLR now
+        run on a separate server. The storage backend is now connected to the
+        new storage system at Eawag which provides a total storage capacity of
+        11 TB for ERIC.
+    </p>
+    <h3>Contact and more information</h3>
+    <ul>
+        <li>
+            <a href="https://opendata.eawag.ch">Project homepage</a>
+        </li>
+        <li>
+            <a href="https://eawag-rdm.github.io/presentation_launch_event/index.html">Project presentation (old)</a>
+        </li>
+        <li>
+            <a href="https://github.com/eawag-rdm/eawag-ckan/issues">Submit bugs and feature requests at Github</a>, or
+        </li>
+        <li>
+            send email to <a href="mailto:rdm@eawag.ch">rdm@eawag.ch</a>
+        </li>
+    </ul>
+</div>
+{% block secondary %}<div style="margin-bottom:0px;margin-top:30px;">Christian Foerster/2023-03-31</div>{% endblock %}

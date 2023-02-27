@@ -1,6 +1,6 @@
 {% ckan_extends %}
 {% block styles %}
-    {# nextline to prevent FOUC (flash on unstyled content) #}
+    {# nextline to prevent FOUC (flash on unstyled content) adding a class name to access via css #}
     <script>document.documentElement.className += 'js-on';</script>
     {{ super() }}
     {% asset 'eaw_theme/eaw_theme-css' %}
