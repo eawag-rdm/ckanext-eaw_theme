@@ -1,3 +1,4 @@
+pytest
 pytest-ckan
 djlint
 isort
