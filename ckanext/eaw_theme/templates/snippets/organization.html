@@ -9,7 +9,7 @@ if there is no description for the organizationin
         <p class="read-more">{% link_for _('read more'), named_route=organization.type ~ '.about', id=organization.name %}</p>
         {# Modification start; original below; section removed #}
         {#
-      {% else %}
+    {% else %}
         <p class="empty">{{ h.humanize_entity_type('organization', organization.type, 'no description') or _('There is no description for this organization') }}</p>
     #}
         {# Modification end #}

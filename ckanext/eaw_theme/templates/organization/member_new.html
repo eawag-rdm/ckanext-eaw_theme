@@ -7,12 +7,12 @@
         <div class="row">
             <div class="col-md-5">
                 <div class="form-group control-medium">
-                    {# Modification start; original below #}
-                    {#
-                        <label class="form-label" for="username">{{ _('Existing User') }}</label>
-                        <p>{{ _('If you wish to add an existing user, search for their username below.') }}</p>
-                    #}
                     {% if not user %}
+                        {# Modification start; original below #}
+                        {#
+                            <label class="form-label" for="username">{{ _('Existing User') }}</label>
+                            <p>{{ _('If you wish to add an existing user, search for their username below.') }}</p>
+                        #}
                         <p>
                             {{ _('Search for the Eawag username below. It usually
                             starts with the first letters of the new user\'s last
@@ -27,7 +27,7 @@
                     {% endif %}
                     <div class="controls">
                         {# Modification start; this was added #}
-                        <label>{{ _('Eawag username')}}</label>
+                        <label>{{ _('Eawag username') }}</label>
                         {# Modification end #}
                         {% if user %}
                             <input type="hidden" name="username" value="{{ user.name }}" />

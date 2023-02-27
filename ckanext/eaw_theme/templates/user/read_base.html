@@ -8,8 +8,8 @@
 {% endblock %}
 {# Remove placeholder for about - test #}
 {% block user_about %}
-    {% if c.about_formatted %}
-        {{ c.about_formatted }}
+    {% if about_formatted %}
+        {{ about_formatted }}
     {% else %}
         <p class="empty"></p>
         {# Modification start; original below; section removal #}

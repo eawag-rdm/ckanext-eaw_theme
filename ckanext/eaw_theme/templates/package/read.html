@@ -3,7 +3,8 @@
 {% block package_description %}
     {{ super() }}
     {# We include a filed "spatial" through ckanext-scheming. It is not in "extras" #}
-    {% set dataset_extent = c.pkg_dict['spatial'] %}
+    {# AS set pkg = c.pkg_dict is in template this change is made: c.pkg_dict['spatial'] -> pkg.spatial #}
+    {% set dataset_extent = pkg.spatial %}
     {% if dataset_extent and dataset_extent != "{}" %}
         {% snippet "spatial/snippets/dataset_map.html", extent=dataset_extent %}
     {% endif %}

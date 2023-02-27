@@ -5,8 +5,8 @@
         {#
         {% snippet 'snippets/add_dataset.html', group=group_dict.id %}
         #}
-        {%- set named_route=h.eaw_theme_get_default_dataset_type(c.group_dict.id)~'_new' -%}
-        {% link_for _('Add Dataset'), named_route=named_route, group=c.group_dict.id, class_='btn btn-primary', icon='plus-square' %}
+        {%- set named_route=h.eaw_theme_get_default_dataset_type(group_dict.id)~'_new' -%}
+        {% link_for _('Add Dataset'), named_route=named_route, group=group_dict.id, class_='btn btn-primary', icon='plus-square' %}
         {# Modification end #}
     {% endif %}
 {% endblock %}

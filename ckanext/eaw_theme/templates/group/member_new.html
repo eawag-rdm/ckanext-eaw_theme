@@ -29,7 +29,7 @@
                     {% endif %}
                     <div class="controls">
                         {# Modification start; this was added #}
-                        <label>{{ _('Eawag username')}}</label>
+                        <label>{{ _('Eawag username') }}</label>
                         {# Modification end #}
                         {% if user %}
                             <input type="hidden" name="username" value="{{ user.name }}" />
@@ -38,7 +38,7 @@
                                    type="text"
                                    value="{{ user.name }}"
                                    disabled="True"
-                                   class="form-control control-medium" />
+                                   class="form-control control-medium"/>
                         {% else %}
                             <input id="username"
                                    type="text"
@@ -47,7 +47,7 @@
                                    value=""
                                    class="control-medium"
                                    data-module="autocomplete"
-                                   data-module-source="/api/2/util/user/autocomplete?ignore_self=true&q=?" />
+                                   data-module-source="/api/2/util/user/autocomplete?ignore_self=true&q=?"/>
                         {% endif %}
                     </div>
                 </div>

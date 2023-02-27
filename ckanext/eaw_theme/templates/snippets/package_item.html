@@ -1,18 +1,31 @@
 {# Modified version for Eawag #}
-{# Sets search results in bootstrap-"well". #}
-{# Attaches link to package to whole "well-div". #}
+{#
+my-card is styled in the eawag_theme.css,
+used to be well class from bootstrap 3.
+Bootstrap 5 calls the style set card.
+
+my-card is styling Bootstrap 5 card to look like in Bootstrap 3
+#}
+{# Sets search results in bootstrap 3 "well" style via naming of bootstrap 5 ("card"). #}
+{# Attaches link to package to whole "my-card". #}
 {# Attaches link to package to package text #}
 {# Adds package.organization as badge. #}
 {% ckan_extends %}
 {% set orgatitle = package.organization.title %}
 {% set organame = package.organization.name %}
-{% set orgalink = h.url_for(controller='organization', action='read', id=organame) %}
+{% set orgalink = h.url_for(controller='organization.read', id=organame) %}
 {% set packagelink = h.url_for('dataset.read', id=package.name) %}
 {% block package_item %}
-    <div class="well well-small" onclick="location.href='{{ packagelink }}'">{{ super() }}</div>
+    <div class="card eaw-card" onclick="location.href='{{ packagelink }}'">{{ super() }}</div>
 {% endblock %}
 {% block heading_title %}
-    <span class="badge badge-inverse">{{ h.link_to(orgatitle, orgalink) }}</span>
-    <div>{{ h.link_to(title, packagelink) }}</div>
+    <span class="badge badge-inverse-default">
+        <a href="{{ orgalink }}"/>
+        {{ orgatitle }}
+    </span>
+    <div>
+        <a href="{{ packagelink }}"/>
+        {{ title }}
+    </div>
 {% endblock %}
-{% block notes %}<a class="package_desc" href="{{ packagelink }}">{{ super() }}</a>{% endblock %}
+{% block notes %}<a class="eaw_package_desc" href="{{ packagelink }}">{{ super() }}</a>{% endblock %}

@@ -1,11 +1,12 @@
-{% extends "page.html" %}
-{% import 'macros/form.html' as form %}
-{% block subtitle %}{{ _(dataset_type.title()) }}{% endblock %}
-{% block breadcrumb_content %}
-    <li class="active">
-        {{ h.nav_link(_(dataset_type.title() + 's'), named_route='%s.search' % dataset_type, highlight_actions = 'new index') }}
-    </li>
-{% endblock %}
+{% ckan_extends %}
+{#
+This block is not in the documentation.
+ChatGPT says:
+
+The pre_primary block is a Jinja2 block that is used in the CKAN templating system.
+It is a block that is included in the primary template,
+and it is meant to be used for content that should appear before the main content of a page.
+#}
 {% block pre_primary %}
     <div>
         {% snippet "spatial/snippets/spatial_query.html", default_extent=h.eaw_theme_get_spatial_query_default_extent() %}
