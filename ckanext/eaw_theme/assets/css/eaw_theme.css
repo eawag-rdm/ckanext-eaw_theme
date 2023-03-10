@@ -47,6 +47,11 @@ div.homepage.layout-3 {
   background-size: 100%;
 }
 
+body,
+body .main {
+ background:#005d7a url("../../../base/images/bg.png")
+}
+
 .toolbar ol.breadcrumb {
   background: rgb(245, 245, 245);
   padding: 5px;
