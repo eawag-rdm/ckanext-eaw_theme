@@ -70,7 +70,7 @@ class EawThemePlugin(plugins.SingletonPlugin, DefaultTranslation):
             "eaw_theme_get_spatial_query_default_extent": eaw_theme_get_spatial_query_default_extent,
             "eaw_theme_get_default_dataset_type": eaw_theme_get_default_dataset_type,
             "eaw_theme_patch_activity_actor": eaw_theme_patch_activity_actor,
-            "eaw_theme_geteawuser": eaw_helpers_geteawuser,
+            "eaw_helpers_geteawuser": eaw_helpers_geteawuser,
             "eaw_theme_patch_linked_user": eaw_theme_patch_linked_user,
         }
 
