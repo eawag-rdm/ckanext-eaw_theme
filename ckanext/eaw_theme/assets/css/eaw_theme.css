@@ -47,6 +47,21 @@ div.homepage.layout-3 {
   background-size: 100%;
 }
 
+.homepage .module-feeds {
+  padding: 10rem 0;
+  background: none;
+}
+.homepage .hero {
+  background: none;
+  padding: 20px 0;
+}
+
+@media (min-width: 1200px) {
+    .container-xl, .container-lg, .container-md, .container-sm, .container {
+        max-width: 940px;
+    }
+}
+
 body,
 body .main {
  background:#005d7a url("../../base/images/bg.png")
