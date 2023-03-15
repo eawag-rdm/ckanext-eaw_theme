@@ -13,7 +13,8 @@ my-card is styling Bootstrap 5 card to look like in Bootstrap 3
 {% ckan_extends %}
 {% set orgatitle = package.organization.title %}
 {% set organame = package.organization.name %}
-{% set orgalink = h.url_for(controller='organization.read', id=organame) %}
+{{ organame|pprint}}
+{% set orgalink = h.url_for('organization.read', id=organame) %}
 {% set packagelink = h.url_for('dataset.read', id=package.name) %}
 {% block package_item %}
     <div class="card eaw-card" onclick="location.href='{{ packagelink }}'">{{ super() }}</div>
