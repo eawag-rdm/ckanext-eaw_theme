@@ -261,6 +261,8 @@ div.info-block.info-inline.shorthelp {
 }
 textarea.eaw_with_infobutton {
   width: 90%;
+      display: inline-block;
+  vertical-align: middle;
 }
 
 @media (max-width: 768px) {
