@@ -289,12 +289,12 @@ textarea.eaw_with_infobutton {
 div.modal-help {
   font-size: large;
 }
-.modal-help .modal  {
+/*.modal-help .modal  {
   width: 750px;
   max-width:95%;
   left:auto;
   margin-left: -200px;
-}
+} */
 
 /* This gave problems during 2.9.5-update */
 /* .modal-help .modal-body { */
