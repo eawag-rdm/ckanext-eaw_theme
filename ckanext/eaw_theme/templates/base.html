@@ -3,9 +3,15 @@
     {# nextline to prevent FOUC (flash on unstyled content) adding a class name to access via css #}
     <script>document.documentElement.className += 'js-on';</script>
     {{ super() }}
+    {% asset 'eaw_theme/eaw_schema-css' %}
+    {% asset 'eaw_theme/bootstrap-switch-css' %}
+    {% asset 'eaw_theme/bootstrap-datepicker-css' %}
     {% asset 'eaw_theme/eaw_theme-css' %}
 {% endblock %}
 {% block scripts %}
     {{ super() }}
     {% asset 'eaw_theme/eaw_theme-js' %}
+    {% asset 'eaw_theme/eaw_schema-js' %}
+    {% asset 'eaw_theme/bootstrap-switch-js' %}
+    {% asset 'eaw_theme/bootstrap-datepicker-js' %}
 {%- endblock %}
