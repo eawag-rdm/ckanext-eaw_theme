@@ -2,15 +2,10 @@
 
 # ckanext-eaw_theme
 
-**TODO:** Put a description of your extension here:  What does it do? What features does it have? Consider including some screenshots or embedding a video!
+A custom CKAN extension for Eawag aquatic research institute open data portal.
 
 
 ## Requirements
-
-**TODO:** For example, you might want to mention here which versions of CKAN this
-extension works with.
-
-If your extension works across different versions you can add the following table:
 
 Compatibility with core CKAN versions:
 
@@ -19,21 +14,11 @@ Compatibility with core CKAN versions:
 | 2.6 and earlier | not tested    |
 | 2.7             | not tested    |
 | 2.8             | not tested    |
-| 2.9             | not tested    |
+| 2.9             | yes           |
 
-Suggested values:
-
-* "yes"
-* "not tested" - I can't think of a reason why it wouldn't work
-* "not yet" - there is an intention to get it working
-* "no"
 
 
 ## Installation
-
-**TODO:** Add any additional install steps to the list below.
-   For example installing any non-Python dependencies or adding any required
-   config settings.
 
 To install ckanext-eaw_theme:
 
@@ -77,6 +62,11 @@ do:
     cd ckanext-eaw_theme
     python setup.py develop
     pip install -r dev-requirements.txt
+
+## Migrated extensions into the theme
+
+    The functionalities and the javascript functions and static files from the https://github.com/eawag-rdm/ckanext-repeating_s.git exension are moved into the theme and this extension is deactivated.
+    The functionalities an the schema json files from the https://github.com/eawag-rdm/ckanext-eaw_schema.git exension are moved into the theme and this extension is deactivated. The links to the json files in the ckan.ini file are modified to point to the files in the eaw_theme extension.
 
 
 ## Tests
