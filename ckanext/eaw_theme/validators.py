@@ -2,6 +2,7 @@ import json
 
 from ckan.plugins.toolkit import missing, _
 
+
 def repeating_text(key, data, errors, context):
     """
     Accept repeating text input in the following forms

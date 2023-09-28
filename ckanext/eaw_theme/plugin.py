@@ -6,7 +6,8 @@ from ckan.lib.plugins import DefaultTranslation
 
 from ckanext.eaw_theme import validators
 
-from ckanext.eaw_core.helpers import (
+
+from ckanext.eaw_schema.helpers import (
     eaw_helpers_geteawuser,
     eaw_theme_get_default_dataset_type,
     eaw_theme_get_spatial_query_default_extent,
