@@ -52,6 +52,7 @@ import ckanext.eaw_theme.plugin as plugin
 from ckan.plugins.core import plugin_loaded
 
 
-
+@pytest.mark.ckan_config("ckan.plugins", "eaw_theme")
+@pytest.mark.usefixtures("with_plugins")
 def test_plugin():
     assert plugin_loaded("eaw_theme")
