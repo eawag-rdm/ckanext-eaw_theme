@@ -1,1 +1,2 @@
 ckanext_eaw_schema @ git+https://github.com/eawag-rdm/ckanext-eaw_schema.git#egg=ckanext_eaw_schema
+ckanext_eaw_vocabularies @ git+https://github.com/eawag-rdm/ckanext-eaw_vocabularies.git#egg=ckanext_eaw_vocabularies
