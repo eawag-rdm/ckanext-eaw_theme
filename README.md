@@ -1,9 +1,9 @@
-[![Tests](https://github.com/eawag-rdm/ckanext-eaw_theme/workflows/Tests/badge.svg?branch=main)](https://github.com/eawag-rdm/ckanext-eaw_theme/actions)
+[![Tests](https://github.com/eawag-rdm/ckanext-eaw_theme/workflows/Tests/badge.svg?branch=eric)](https://github.com/eawag-rdm/ckanext-eaw_theme/actions)
 
 # ckanext-eaw_theme
 
-**TODO:** Put a description of your extension here:  What does it do? What features does it have? Consider including some screenshots or embedding a video!
-
+This CKAN extension provides the custom styles and templates used in EAWAG Open Data Portal. Custom validation and template snippets for editing and display are supported.
+Relevant branches for **ERIC** are `eric` and the branch used for **ERIC Open** is `eric-open`. 
 
 ## Requirements
 
