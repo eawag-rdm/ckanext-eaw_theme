@@ -10,3 +10,4 @@ Pylons
 # ...
 # TypeError: load() missing 1 required positional argument: 'Loader'
 PyYAML==5.4.1
+ckanext-scheming @ git+https://github.com/ckan/ckanext-scheming.git@release-3.0.0#egg=ckanext-scheming

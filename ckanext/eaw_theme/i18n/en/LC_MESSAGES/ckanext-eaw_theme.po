@@ -4584,7 +4584,3 @@ msgstr ""
 #: ckanext/webpageview/theme/templates/webpage_form.html:3
 msgid "eg. http://example.com (if blank uses resource url)"
 msgstr ""
-
-#: ckanext/eaw_vocabularies/templates/snippets/eaw_pkg_search_form.html:12
-msgid "Filter Datasets"
-msgstr "Filter Packages"
