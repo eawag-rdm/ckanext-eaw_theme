@@ -1,20 +1,52 @@
 {# Removes some attribution - verbosity from the footer. #}
 {# The link to the CKAN project-page should be informaive enough. #}
-{% ckan_extends %}
-{% block footer_links_ckan %}
-    {# Modification start; Original in comment; Removing footer links #}
-    {#
-    {% set api_url = 'http://docs.ckan.org/en/{0}/api/'.format(g.ckan_doc_version) %}
-    <li><a href="{{ api_url }}">{{ _('CKAN API') }}</a></li>
-    <li><a href="http://www.ckan.org/">{{ _('CKAN Association') }}</a></li>
-    <li><a href="http://www.opendefinition.org/okd/"><img src="{{ h.url_for_static('/base/images/od_80x15_blue.png') }}" alt="Open Data"></a></li>
-    #}
-    {# Modification end #}
-{% endblock %}
-{% block footer_lang %}
-    {# Modification start; Original in comment; Removing language selections #}
-    {#
-    {% snippet "snippets/language_selector.html" %}
-    #}
-    {# Modification end #}
-{% endblock %}
+{# Add various legalese #}
+{# Add Datacite link #}
+<footer class="site-footer">
+    <div class="container">
+        {% block footer_content %}
+            <div class="row">
+                {% block footer_links %}
+                    <div class="col-md-2">
+                        <a href="{{ h.url_for('disclaimer.disclaimer', typ='legal_notice') }}">Legal Notice</a>
+                    </div>
+                    <div class="col-md-1">
+                        <a href="{{ h.url_for('disclaimer.disclaimer', typ='liability') }}">Liability</a>
+                    </div>
+                    <div class="col-md-1">
+                        <a href="{{ h.url_for('disclaimer.disclaimer', typ='copyright') }}">Copyright</a>
+                    </div>
+                    <div class="col-md-2">
+                        <a href="{{ h.url_for('disclaimer.disclaimer', typ='dataprotection') }}">Privacy Policy</a>
+                    </div>
+                    <div class="col-md-2">
+                        Member of
+                        <br />
+                        <a href="https://datacite.org" target="_blank">
+                            <img src="/base/images/datacite.svg" width="80px" />
+                        </a>
+                    </div>
+                    <div class="col-md-2 attribution">
+                        <p>
+                            {% trans %}<strong>Powered
+                            by</strong> <a class="hide-text ckan-footer-logo"
+    href="http://ckan.org"
+    target="_blank">CKAN</a>{% endtrans
+                            %}
+                        </p>
+                    </div>
+                    <div class="col-md-2 attribution">
+                        <a href="https://eawag.ch" target="_blank">
+                            <img src="/base/images/eawag_blueish.svg" width="180px" />
+                        </a>
+                    </div>
+                {% endblock %}
+            </div>
+        {% endblock %}
+    </div>
+    {% block footer_debug %}
+        {% if g.debug %}
+            {% include 'snippets/debug.html' %}
+        {% endif %}
+    {% endblock %}
+</footer>

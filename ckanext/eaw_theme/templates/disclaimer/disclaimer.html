@@ -1,0 +1,8 @@
+{% extends "page.html" %}
+{% block secondary %}{% endblock %}
+{% block primary %}
+    <div class="primary col-sm-11 col-xs-12">
+        {% block primary_content %}
+            <div style="padding-bottom:30px">{% snippet "disclaimer/snippets/" ~ typ ~ ".html" %}</div>
+        {% endblock %}
+    {% endblock %}

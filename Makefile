@@ -8,6 +8,3 @@ reformat:
 	isort ckanext/
 	black ckanext/
 	djlint ckanext/eaw_theme/templates/ --reformat
-	djlint _templates_v2.7.3 --reformat
-
-

@@ -1,7 +1,8 @@
 {#
 Removes "There is no description for this organization" in the sidebar
-if there is no description for the organizationin
+if there is no description for the organization
 #}
+{# + Removes Follower count and follow-button. #}
 {% ckan_extends %}
 {% block description %}
     {% if organization.description %}
@@ -15,3 +16,14 @@ if there is no description for the organizationin
         {# Modification end #}
     {% endif %}
 {% endblock %}
+{% block nums %}
+    <div class="nums">
+        <dl>
+            <dt>{{ _("Datasets") }}</dt>
+            <dd>
+                {{ h.SI_number_span(organization.package_count) }}
+            </dd>
+        </dl>
+    </div>
+{% endblock %}
+{% block follow %}{% endblock %}

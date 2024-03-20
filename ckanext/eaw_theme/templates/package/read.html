@@ -1,6 +1,10 @@
 {# Adds dataset-extent map to dataset-page #}
 {% ckan_extends %}
 {% block package_description %}
+    <a class="doi-link"
+       href="https://doi.org/{{ pkg.doi }}"
+       rel="dc:identifier"
+       target="_blank">https://doi.org/{{ pkg.doi }}</a>
     {{ super() }}
     {# We include a filed "spatial" through ckanext-scheming. It is not in "extras" #}
     {# AS set pkg = c.pkg_dict is in template this change is made: c.pkg_dict['spatial'] -> pkg.spatial #}

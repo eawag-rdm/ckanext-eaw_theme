@@ -5,6 +5,20 @@
 This CKAN extension provides the custom styles and templates used in EAWAG Open Data Portal. Custom validation and template snippets for editing and display are supported.
 Relevant branches for **ERIC** are `eric` and the branch used for **ERIC Open** is `eric-open`. 
 
+Files to port:
+
+ckanext/eaw_theme/templates/footer.html
+ckanext/eaw_theme/templates/group/index.html
+ckanext/eaw_theme/templates/header.html
+ckanext/eaw_theme/templates/home/about.html
+ckanext/eaw_theme/templates/home/snippets/about_text.html
+ckanext/eaw_theme/templates/organization/index.html
+ckanext/eaw_theme/templates/organization/snippets/organization_item.html
+ckanext/eaw_theme/templates/package/read.html
+ckanext/eaw_theme/templates/package/snippets/info.html
+ckanext/eaw_theme/templates/snippets/organization.html
+
+
 ## Requirements
 
 **TODO:** For example, you might want to mention here which versions of CKAN this

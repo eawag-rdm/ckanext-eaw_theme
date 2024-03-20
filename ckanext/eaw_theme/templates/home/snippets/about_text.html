@@ -1,77 +1,262 @@
-<div style="font-size:120%;">
-    <h2 style="font-size:140%;text-align:center;">The Eawag Research Data Institutional Repository (ERIC)</h2>
-    <p>
-        This is the new release of Eawag's research data
-        repository. It features a <b>new meta-data schema</b> that is better adapted to
-        user's needs, <b>improved workflow support</b>, <b>new functionality</b> such
-        as <i>restricted resources</i>, <b>usability improvements</b> and bug
-        fixes.
-    </p>
-    <div style="border:1px;
-                border-style:solid;
-                padding:5px 30px 5px 30px;
-                box-shadow:10px 10px;
-                background-color:yellow;
-                margin:30px">
-        <h3>Terms of Use:</h3>
-        <ol>
-            <li>
-                Use of data in this repository only with permission from <b>Author</b> or <b>Usage Contact</b>!
-            </li>
-            <li>
-                Making available data in this repository outside Eawag only with permission from <b>Author</b> or <b>Usage Contact</b>!
-            </li>
-        </ol>
+<div class="jumbotron">
+    <div class="container">
+        <h1>ERIC/open</h1>
+        <p>The Eawag Research Data Institutional Repository</p>
     </div>
-    <!-- to <a href="mailto:rdm@eawag.ch">rdm@eawag.ch</a>.</li> -->
-    <h3>Underlying software</h3>
-    <ul>
-        <li>
-            The CKAN has been upgraded from version 2.7.3 to version
-            2.10.0
-            <a href="https://github.com/ckan/ckan/blob/ckan-2.10.0/CHANGELOG.rst"
-               target="_blank">
-                <i class="fa fa-external-link-square fa-lg"> </i>
-            </a>.
-        </li>
-        <li>
-            The search platform SOLR has been upgraded from version 6.5.0 to
-            version
-            8.11.2
-            <a href="https://lucene.apache.org/solr/8_11_2/changes/Changes.html"
-               target="_blank">
-                <i class="fa fa-external-link-square fa-lg"> </i>
-            </a>.
-        </li>
-        <li>
-            The database Postgres has been upgraded from version 9.6.9 to version 15.2.
-            <a href="https://www.postgresql.org/docs/15/release-15-2.html"
-               target="_blank">
-                <i class="fa fa-external-link-square fa-lg"> </i>
-            </a>.
-        </li>
-    </ul>
-    <h3>Server</h3>
-    <p>
-        Instead of on a single virtual machine (VM), Postgres and SOLR now
-        run on a separate server. The storage backend is now connected to the
-        new storage system at Eawag which provides a total storage capacity of
-        11 TB for ERIC.
-    </p>
-    <h3>Contact and more information</h3>
-    <ul>
-        <li>
-            <a href="https://opendata.eawag.ch">Project homepage</a>
-        </li>
-        <li>
-            <a href="https://eawag-rdm.github.io/presentation_launch_event/index.html">Project presentation (old)</a>
-        </li>
-        <li>
-            <a href="https://github.com/eawag-rdm/eawag-ckan/issues">Submit bugs and feature requests at Github</a>, or
-        </li>
-        <li>
-            send email to <a href="mailto:rdm@eawag.ch">rdm@eawag.ch</a>
-        </li>
-    </ul>
 </div>
-{% block secondary %}<div style="margin-bottom:0px;margin-top:30px;">Christian Foerster/2023-03-31</div>{% endblock %}
+<div style="font-size:130%">
+    <div class="alert alert-info">
+        This is the place where Eawag scientists publish their research data. Research data is
+        organized in <i><strong>Packages</strong></i> which contain one or
+        more <i><strong>Resources</strong></i>. <i>Resources</i> are usually files containing research data
+        proper or ancillary information such as a README-file. A URL pointing to external
+        information might also constitute a <i>Resource</i>.
+    </div>
+    <div class="alert alert-info">
+        <i>Data packages</i> can be assigned to <i><strong>Projects</strong></i> to give users an overview of
+        data generated or related to a specific research project.
+    </div>
+    <div class="alert alert-info">
+        Each <i>Package</i> is assigned to
+        an <i><strong>Organization</strong></i>. <i>Organizations</i>
+        represent individual research groups or labs at Eawag. Since
+        Eawag departments are also represented as <i>Organizations</i> in
+        ERIC/open, users can easily access all open research
+        data published by a specific Eawag department.
+    </div>
+    <div class="alert alert-warning">
+        The data packages are not (yet)
+        complete, since we are still in the process to discover and move
+        home legacy datasets that were previously published in Zenodo,
+        Dryad, Pangaea and other places.
+    </div>
+</div>
+<div class="page-header">
+    <h1 class="text-center">
+        This is a <a href="https://www.go-fair.org/fair-principles/" target="_blank">FAIR</a> Open Research Data repository.
+    </h1>
+</div>
+<div class="media">
+    <div class="media-left">
+        <div class="bg-success media-object img-rounded" style="padding:5px;">
+            <i class="fa fa-search fa-3x" aria-hidden="true"></i>
+        </div>
+    </div>
+    <div class="media-body">
+        <h3 class="media-heading">
+            Data in ERIC/open is <mark>F</mark>indable.
+        </h3>
+        <p>
+            Each Dataset has a globally unique and persistent identifier in the form of a
+            Digital Object Identifier (DOI) which is registered
+            with <a href="https://datacite.org" target="_blank">DataCite</a>.
+        </p>
+        <p>
+            The meta-data records we submit for DOI creation conform to the
+            latest <a href="https://schema.datacite.org/meta" target="_blank">DataCite Metadata
+            Schema</a> and contain quality-checked information for almost all possible fields,
+            where applicable. For example, we are among the few repositories who attach spatial
+            information to their meta-data. We continuously improve the extent and the quality
+            our meta-data, also retroactively.
+        </p>
+        <p>
+            Data in ERIC/open is found through search services that index DOI meta-data,
+            such <a href=""></a>s <a href="https://search.datacite.org/" target="_blank">DataCite
+            Search</a>, <a href="https://toolbox.google.com/datasetsearch" target="_blank">Google Dataset Search</a> and <a href="https://www.base-search.net/" target="_blank">BASE</a>.
+        </p>
+        <p>
+            ERIC/open can of course also be searched directly, be it through
+            the <a href="{{ host[0] }}://{{ host[1] }}" target="_blank">search box</a>, which
+            also supports
+            an <a href="https://docs.ckan.org/en/latest/user-guide.html#search-in-detail"
+    target="_blank">advanced query syntax</a> or through this
+            service's <a href="https://docs.ckan.org/en/latest/api/index.html#api-examples=API"
+    target="_blank">API</a>, which provides a
+            powerful <a href="https://lucene.apache.org/solr/" target="_blank">SOLR</a>
+            <a href="https://docs.ckan.org/en/latest/api/index.html#ckan.logic.action.get.package_search"
+               target="_blank">search syntax</a>.
+        </p>
+    </div>
+</div>
+<div class="media">
+    <div class="media-left">
+        <div class="bg-success media-object img-rounded" style="padding:5px;">
+            <i class="fa fa-cloud-download fa-3x" aria-hidden="true"></i>
+        </div>
+    </div>
+    <div class="media-body">
+        <h3 class="media-heading">
+            Data in ERIC/open
+            is <mark>A</mark>ccessible.
+        </h3>
+        <p>
+            All datasets can be downloaded directly over HTTPS, no strings attached. There is
+            no need to create an account or disclose an an email-address. In fact, the data
+            available through ERIC/open is better than "FAIR", it is
+            truly <a href="https://creativecommons.org/about/program-areas/open-data/"
+    target="_blank"><strong>Open Data</strong></a> and conforms to
+            the <a href="https://pantonprinciples.org/" target="_blank">highest
+            standards </a>regarding openness. ERIC/open's powerful
+            RPC-style <a href="https://docs.ckan.org/en/latest/api/index.html" target="_blank">API</a> exposes all of CKAN's core features and lends itself to
+            efficient scripted data retrieval without user-interaction.
+        </p>
+    </div>
+</div>
+<div class="media">
+    <div class="media-left">
+        <div class="bg-success media-object img-rounded" style="padding:5px;">
+            <i class="fa fa-exchange fa-3x" aria-hidden="true"></i>
+        </div>
+    </div>
+    <div class="media-body">
+        <h3 class="media-heading">
+            Data in ERIC/open
+            is <mark>I</mark>nteroperable.
+        </h3>
+        <p>
+            ERIC/open's meta-data are formally
+            <a href="https://schema.datacite.org/meta/kernel-4.0/metadata.xsd"
+               target="_blank">specified</a>, and contain qualified references to related
+            resources such as other datasets, publications, other versions of the dataset,
+            software repositories, <a href="https://orcid.org">ORCID identifiers</a>, etc. in
+            a standardized way.
+        </p>
+        <p>
+            ERIC/open allows to directly read, search and filter data without the need to
+            download the entire file first through
+            its <a href="https://docs.ckan.org/en/latest/maintaining/datastore.html#the-datastore-api"
+    target="_blank">DataStore API</a>. This requires of course a suitable format of
+            tabular data, which cannot be enforced. The degree of interoperability that can be
+            realized with respect to the research data proper varies and is determined by
+            conventions of the respective field, availability of standards and the trade-off
+            between data quality and cost that scientists have to make.
+        </p>
+    </div>
+</div>
+<div class="media">
+    <div class="media-left">
+        <div class="bg-success media-object img-rounded" style="padding:5px;">
+            <i class="fa fa-recycle fa-3x" aria-hidden="true"></i>
+        </div>
+    </div>
+    <div class="media-body">
+        <h3 class="media-heading">
+            Data in ERIC/open
+            is <mark>R</mark>eusable.
+        </h3>
+        <p>
+            When submitting data to ERIC (the Eawag-internal companion service to ERIC/open),
+            scientists are guided through an ingest process that is designed to help them tag
+            their dataset with a large variety of significant and precise
+            attributes. Furthermore, Eawag RDM Services provide support
+            and <a href="https://doi.org/10.25678/000066" target="_blank">guidance</a> for the
+            preparation of a README file, which contains the necessary information to re-use the
+            data in a scientific context. The guide also contains practical state-of-the art
+            advice on the organization and preparation of re-usable research data <i>packages</i>. ERIC
+            supports initiating and recording the (internal) review of datasets before making
+            them public.
+        </p>
+        <p>
+            All meta-data provided by ERIC/open is in the <strong>public domain</strong>.
+            Research data proper is also in the <strong>public domain</strong>. Packages might contain
+            copyrighted material such as text, images, software, graphs. Greatest care is taken to
+            make sure that licensing information for all content in ERIC/open is clearly
+            stated. Please have a look at the more extensive
+            <a href="{{ host[0] }}://{{ host[1] }}/disclaimer/copyright"
+               target="_blank">explanation</a>.
+        </p>
+    </div>
+</div>
+<div class="page-header">
+    <h1 class="text-center">Software stack</h1>
+</div>
+<div class="media">
+    <div class="media-left" style="padding:20px">
+        <a href="https://ckan.org" target="_blank">
+            <img class="media-object"src="/base/images/ckan-logo.png" width="80px">
+        </a>
+    </div>
+    <div class="media-body">
+        <h3 class="media-heading">CKAN</h3>
+        <p>
+            ERIC/open is build on the <a href="https://ckan.org" target="_blank">CKAN</a>, the world’s leading Open Source data
+            portal platform. CKAN is run by hundreds of state institutions,
+            governments, companies and NGOs around the world who invest in
+            its continued development. A large pool of developers, a highly
+            competent core technical team, a solid yet easily extensible
+            architecture, high code quality, excellent documentation and
+            stewardship through <a href="https://linkdigital.com.au/" target="_blank">Link
+            Digital</a>, <a href="https://datopian.com/" target="_blank">Datopian</a> and the <a href="https://okfn.org/" target="_blank">Open Knowledge Foundation</a> make CKAN the
+            optimal choice for ERIC/open.
+        </p>
+    </div>
+</div>
+<div class="media">
+    <div class="media-left">
+        <img class="media-object"
+             src="/base/images/postgres_logo.svg"
+             width="40px">
+        <img class="media-object"
+             src="/base/images/python-powered-h.svg"
+             width="40px"
+             style="margin-top:3px">
+    </div>
+    <div class="media-left">
+        <img class="media-object"
+             src="/base/images/Solr_Logo_on_white.png"
+             width="60px">
+        <img class="media-object"
+             src="/base/images/redis.svg"
+             width="50px"
+             style="margin-top:6px">
+    </div>
+    <div class="media-body">
+        <h3 class="media-heading">Other components</h3>
+        <p>
+            CKAN utilizes a battle proven technology-stack,
+            including <a href="https://www.python.org/" target="_blank">Python</a>,
+            <a href="https://palletsprojects.com/p/flask/" target="_blank">Flask</a>,
+            <a href="https://redis.io/" target="_blank">redis</a>, <a href="https://lucene.apache.org/solr/" target="_blank">Solr</a> and
+            <a href="https://www.postgresql.org/" target="_blank">PostgreSQL</a>.
+        </p>
+    </div>
+</div>
+<div class="media">
+    <div class="media-left" style="padding:10px">
+        <a href="https://github.com/eawag-rdm" target="_blank">
+            <img class="media-object" src="/base/images/octocat.png" width="100px">
+        </a>
+    </div>
+    <div class="media-body">
+        <h3 class="media-heading">Custom code</h3>
+        <p>
+            A large number of modifications have been implemented to
+            customize CKAN for Eawag's requirements. This is mostly visible
+            on the "ingest"-side in ERIC/open's internal companion-service
+            "ERIC". The code written by the Eawag Research Data Management
+            Services is <a href="https://github.com/eawag-rdm" target="_blank">available on GitHub</a>.
+        </p>
+    </div>
+</div>
+<div class="page-header">
+    <h1 class="text-center">Ancillary information</h1>
+</div>
+<div class="media">
+    <div class="media-left" style="padding:26px;">
+        <i class="fa fa-external-link fa-4x"></i>
+    </div>
+    <div class="media-body">
+        <h3 class="media-heading">Related links</h3>
+        <ul class="list-unstyled">
+            <li>
+                <a href="https://www.eawag.ch/">Eawag</a>
+            </li>
+            <li>
+                <a href="https://opendata.eawag.ch/">Eawag Research Data Management Project</a>
+            </li>
+            <li>
+                <a href="mailto:rdm@eawag.ch">Get in touch by sending email to rdm@eawag.ch</a>
+            </li>
+        </ul>
+    </div>
+</div>
