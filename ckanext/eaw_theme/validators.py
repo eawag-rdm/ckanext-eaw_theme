@@ -1,6 +1,6 @@
 import json
 
-from ckan.plugins.toolkit import missing, _
+from ckan.plugins.toolkit import _, missing
 
 
 def repeating_text(key, data, errors, context):
@@ -34,22 +34,21 @@ def repeating_text(key, data, errors, context):
         if isinstance(value, str):
             value = [value]
         if not isinstance(value, list):
-            errors[key].append(_('expecting list of strings'))
+            errors[key].append(_("expecting list of strings"))
             return
 
         out = []
         for element in value:
             if not isinstance(element, str):
-                errors[key].append(_('invalid type for repeating text: %r')
-                    % element)
+                errors[key].append(_("invalid type for repeating text: %r") % element)
                 continue
-#            if isinstance(element, str):
-#                try:
-#                    element = element.decode('utf-8')
-#                except UnicodeDecodeError:
-#                    errors[key]. append(_('invalid encoding for "%s" value')
-#                        % lang)
-#                    continue
+            #            if isinstance(element, str):
+            #                try:
+            #                    element = element.decode('utf-8')
+            #                except UnicodeDecodeError:
+            #                    errors[key]. append(_('invalid encoding for "%s" value')
+            #                        % lang)
+            #                    continue
             out.append(element)
 
         if not errors[key]:
@@ -58,15 +57,15 @@ def repeating_text(key, data, errors, context):
 
     # 3. separate fields
     found = {}
-    prefix = key[-1] + '-'
-    extras = data.get(key[:-1] + ('__extras',), {})
+    prefix = key[-1] + "-"
+    extras = data.get(key[:-1] + ("__extras",), {})
 
     for name, text in list(extras.items()):
         if not name.startswith(prefix):
             continue
         if not text:
             continue
-        index = name.rsplit('-', 1)[1]
+        index = name.rsplit("-", 1)[1]
         try:
             index = int(index)
         except ValueError:

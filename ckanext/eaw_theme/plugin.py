@@ -4,9 +4,6 @@ import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
 from ckan.lib.plugins import DefaultTranslation
 
-from ckanext.eaw_theme import validators
-
-
 from ckanext.eaw_schema.helpers import (
     eaw_helpers_geteawuser,
     eaw_theme_get_default_dataset_type,
@@ -14,6 +11,7 @@ from ckanext.eaw_schema.helpers import (
     eaw_theme_patch_activity_actor,
     eaw_theme_patch_linked_user,
 )
+from ckanext.eaw_theme import validators
 
 
 class EawThemePlugin(plugins.SingletonPlugin, DefaultTranslation):
@@ -84,11 +82,10 @@ class EawThemePlugin(plugins.SingletonPlugin, DefaultTranslation):
             {"sort": search_params.get("sort", "mydefaultsortparam asc")}
         )
         return search_params
-    
+
     # IValidators
     def get_validators(self):
         return {
-            'repeating_text': validators.repeating_text,
-            'repeating_text_output':
-                validators.repeating_text_output,
-            }
+            "repeating_text": validators.repeating_text,
+            "repeating_text_output": validators.repeating_text_output,
+        }
