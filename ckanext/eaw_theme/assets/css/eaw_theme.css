@@ -40,6 +40,10 @@
   font-size: 18px;
 }
 
+.masthead .container {
+  padding-top: 12px;
+}
+
 .account-masthead {
   background: #005d7a;
 }
