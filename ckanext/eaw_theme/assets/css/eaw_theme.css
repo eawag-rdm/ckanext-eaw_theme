@@ -342,7 +342,7 @@ li.resource-item:hover {
 }
 
 /* spatial_query.css */
-.module-narrow #dataset-map-container {
+#eric-map > .module-narrow #dataset-map-container {
   height: 400px;
 }
 

@@ -8,7 +8,7 @@ It is a block that is included in the primary template,
 and it is meant to be used for content that should appear before the main content of a page.
 #}
 {% block pre_primary %}
-    <div>
+    <div id="eric-map">
         {% snippet "spatial/snippets/spatial_query.html", default_extent=h.eaw_theme_get_spatial_query_default_extent() %}
     </div>
     {{ super() }}
