@@ -3,9 +3,13 @@ Disallow: /dataset/rate/
 Disallow: /revision/
 Disallow: /group/*?*
 Disallow: /dataset?*
+Disallow: /dataset/?*
 Disallow: /organization/*?*
 Disallow: /dataset/*/history
 Disallow: /dataset/*/resource
 Disallow: /api/
+DIsallow: /dataset/changes/*
+DIsallow: /group/changes/*
+DIsallow: /organization/changes/*
 Crawl-Delay: 10
 
