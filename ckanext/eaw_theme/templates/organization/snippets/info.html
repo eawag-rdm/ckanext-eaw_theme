@@ -8,18 +8,18 @@ if there is no description for the organization
     {% if organization.description %}
         <p class="description">{{ h.markdown_extract(organization.description, 180) }}</p>
         <p class="read-more">{% link_for _('read more'), named_route=organization.type ~ '.about', id=organization.name %}</p>
-        {# Modification start; original below; section removed #}
-        {#
+    {# Modification start; original below; section removed #}
+    {#
     {% else %}
         <p class="empty">{{ h.humanize_entity_type('organization', organization.type, 'no description') or _('There is no description for this organization') }}</p>
     #}
-        {# Modification end #}
+    {# Modification end #}
     {% endif %}
 {% endblock %}
 {% block nums %}
     <div class="nums">
         <dl>
-            <dt>{{ _("Datasets") }}</dt>
+            <dt>{{ h.humanize_entity_type('package', dataset_type, 'facet label') or _('Datasets') }}</dt>
             <dd>
                 {{ h.SI_number_span(organization.package_count) }}
             </dd>
