@@ -4,7 +4,7 @@
 {% block maintag %}{% endblock %}
 {% block toolbar %}{% endblock %}
 {% block content %}
-    <div class="homepage layout-{{ homepage_style }}">
+    <div class="homepage layout-3">
         <div id="content" class="container">{{ self.flash() }}</div>
         {% block primary_content %}
             <div role="main" class="hero">
@@ -12,18 +12,6 @@
                     {% block search %}
                         {% snippet 'home/snippets/search.html' %}
                     {% endblock %}
-                </div>
-            </div>
-            <div role="main">
-                <div class="container">
-                    <div class="row row2">
-                        <div class="col-md-6 col2">
-                            {% block promoted %}{% endblock %}
-                        </div>
-                        <div class="col-md-6 col1">
-                            {% block stats %}{% endblock %}
-                        </div>
-                    </div>
                 </div>
             </div>
         {% endblock %}
