@@ -60,6 +60,7 @@ a.logo img {
 div.homepage.layout-3 {
   background: url("../../images/airbubbles.jpg");
   background-size: 100%;
+  min-height: 80vh;
 }
 
 .homepage .module-feeds {
