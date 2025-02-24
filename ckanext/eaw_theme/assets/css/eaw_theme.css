@@ -47,6 +47,10 @@
 .account-masthead {
   background: #005d7a;
 }
+
+.site-footer {
+  color: #CCDEE3;
+}
 /* HINT: styling for elements of tag a with class logo and image tag */
 a.logo img {
   max-width: 350px;
