@@ -1,5 +1,4 @@
 {% set dataset_type = h.default_package_type() %}
-
 {% block header_wrapper %}
     {% block header_account %}{% endblock %}
     <header class="masthead">
@@ -8,7 +7,7 @@
                 {% if g.debug and not g.debug_supress_header %}
                     <div class="debug">
                         Blueprint : {{ g.blueprint }}
-                    <br />
+                        <br />
                         View : {{ g.view }}
                     </div>
                 {% endif %}
@@ -64,20 +63,13 @@
                     {% block header_site_search %}
                         {# Modification start; Original in comment; Removed search in header #}
                         {#
-                        <form class="d-flex site-search"
-                              action="{% url_for dataset_type ~ '.search' %}"
-                              method="get">
+                        <form class="d-flex site-search" action="{% url_for dataset_type ~ '.search' %}" method="get">
                             <label class="d-none" for="field-sitewide-search">
                                 {% block header_site_search_label %}
                                     {{ h.humanize_entity_type('package', dataset_type, 'search_placeholder') or _('Search Datasets...') }}
                                 {% endblock %}
                             </label>
-                            <input id="field-sitewide-search"
-                                   class="form-control me-2"
-                                   type="text"
-                                   name="q"
-                                   placeholder="{{ _("Search") }}"
-                                   aria-label="{{ h.humanize_entity_type('package', dataset_type, 'search_placeholder') or _('Search datasets...') }}" />
+                            <input id="field-sitewide-search" class="form-control me-2" type="text" name="q" placeholder="{{ _("Search") }}" aria-label="{{ h.humanize_entity_type('package', dataset_type, 'search_placeholder') or _('Search datasets...') }}" />
                             <button class="btn" type="submit" aria-label="{{ _("Submit") }}">
                                 <i class="fa fa-search"></i>
                             </button>
