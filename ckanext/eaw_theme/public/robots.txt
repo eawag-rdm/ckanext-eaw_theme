@@ -11,5 +11,5 @@ Disallow: /api/
 DIsallow: /dataset/changes/*
 DIsallow: /group/changes/*
 DIsallow: /organization/changes/*
-Crawl-Delay: 10
+Crawl-delay: 10
 
