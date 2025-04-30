@@ -13,7 +13,7 @@
                 {% endif %}
             {% endblock %}
             <nav class="navbar navbar-expand-lg navbar-light">
-                <hgroup class="{{ g.header_class }} navbar-left">
+                <div class="{{ g.header_class }} navbar-left">
                     {% block header_logo %}
                         {% if g.site_logo %}
                             <a class="logo" href="{{ h.url_for("home.index") }}">
@@ -28,7 +28,7 @@
                             {% if g.site_description %}<h2>{{ g.site_description }}</h2>{% endif %}
                         {% endif %}
                     {% endblock %}
-                </hgroup>
+                </div>
                 <button class="navbar-toggler"
                         type="button"
                         data-bs-toggle="collapse"
@@ -55,7 +55,7 @@
                                     <a href="/docs/intro.html"
                                        target="_blank"
                                        rel="noopener noreferrer"
-                                       class="upstream_link">Docs</a>
+                                       class="upstream_link">Docs <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                                 </li>
                             {% endblock %}
                         </ul>
@@ -64,7 +64,7 @@
                         {# Modification start; Original in comment; Removed search in header #}
                         {#
                         <form class="d-flex site-search" action="{% url_for dataset_type ~ '.search' %}" method="get">
-                            <label class="d-none" for="field-sitewide-search">
+                            <label class="visually-hidden" for="field-sitewide-search">
                                 {% block header_site_search_label %}
                                     {{ h.humanize_entity_type('package', dataset_type, 'search_placeholder') or _('Search Datasets...') }}
                                 {% endblock %}
