@@ -25,7 +25,6 @@
                         </p>
                         {# Modification end #}
                     {% endif %}
-
                     <div class="form-group control-select">
                         {# Modification start; this was added #}
                         <label class="form-label">{{ _("Eawag username") }}</label>
@@ -34,20 +33,20 @@
                             {% if user %}
                                 <input type="hidden" name="username" value="{{ user.name }}" />
                                 <input id="username"
-                                    name="username"
-                                    type="text"
-                                    value="{{ user.name }}"
-                                    disabled="True"
-                                    class="form-control control-medium" />
+                                       name="username"
+                                       type="text"
+                                       value="{{ user.name }}"
+                                       disabled="True"
+                                       class="form-control control-medium" />
                             {% else %}
                                 <input id="username"
-                                    type="text"
-                                    name="username"
-                                    placeholder="Username"
-                                    value=""
-                                    class="control-medium"
-                                    data-module="autocomplete"
-                                    data-module-source="/api/2/util/user/autocomplete?ignore_self=true&q=?" />
+                                       type="text"
+                                       name="username"
+                                       placeholder="Username"
+                                       value=""
+                                       class="control-medium"
+                                       data-module="autocomplete"
+                                       data-module-source="/api/2/util/user/autocomplete?ignore_self=true&q=?" />
                             {% endif %}
                         </div>
                     </div>

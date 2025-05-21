@@ -3,9 +3,7 @@
 {% block primary %}
     <div class="primary col-12 col-md-11 mx-auto">
         {% block primary_content %}
-            <div style="padding-bottom:30px;padding-top:30px">
-                {% snippet "disclaimer/snippets/" ~ typ ~ ".html" %}
-            </div>
+            <div style="padding-bottom:30px;padding-top:30px">{% snippet "disclaimer/snippets/" ~ typ ~ ".html" %}</div>
         {% endblock %}
     </div>
 {% endblock %}

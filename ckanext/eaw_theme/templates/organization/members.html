@@ -15,7 +15,7 @@
         <tbody>
             {% for user_id, user, role in members %}
                 <tr>
-                    <td class="media">
+                    <td>
                         {# Modification start; original below #}
                         {#
                         {{ h.linked_user(user_id, maxlength=20) }}
@@ -28,7 +28,7 @@
                     {# CKAN 2.11 doesn't have this section anymore. #}
                     {#
                     <td>
-                        <div class="btn-group pull-right">
+                        <div class="btn-group float-end">
                             <a class="btn btn-default btn-sm" href="{{ h.url_for(group_type + '.member_new', id=group_dict.id, user=user_id) }}" title="{{ _("Edit") }}">
                                 <i class="fa fa-wrench"></i>
                             </a>
