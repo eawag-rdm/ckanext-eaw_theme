@@ -121,7 +121,7 @@ select.filterselect {
 
 .search-form {
     clear: both;
-    margin-bottom: -30px;
+    /* margin-bottom: -30px; */
 }
 
 .search-form input.wide-search {
