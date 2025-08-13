@@ -122,6 +122,9 @@ select.filterselect {
 .search-form {
     clear: both;
     /* margin-bottom: -30px; */
+    margin-bottom: 0px;
+    padding-bottom: 25px;
+    border-bottom: 0px;
 }
 
 .search-form input.wide-search {
