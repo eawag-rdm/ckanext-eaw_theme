@@ -427,17 +427,22 @@ a.doi-link {
 }
 
 .homepage .module-search .tags {
-    padding: 5px 10px 10px 10px;
-    background-color: #005d7a;;
+    padding: 0px 10px 10px 10px;
+    background-color: #005d7a;
     -webkit-border-radius: 0 0 15px 15px;
     -moz-border-radius: 0 0 15px 15px;
     border-radius: 0 0 15px 15px;
+    margin-top: -10px;
 }
 
 .homepage .module-search .module-content {
     -webkit-border-radius: 15px 15px 0 0;
     -moz-border-radius: 15px 15px 0 0;
     border-radius: 15px 15px 0 0;
+}
+
+.homepage .module-search .search-form {
+  padding: 15px 20px;
 }
 
 /* Markdown view styling fixes */
