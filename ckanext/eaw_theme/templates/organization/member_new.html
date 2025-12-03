@@ -2,11 +2,11 @@
 {# We want only rea Eawag usernames. #}
 {% ckan_extends %}
 {% block form %}
-    <form class="dataset-form add-member-form" method='post'>
+    <form class="add-member-form" method='post'>
         {{ h.csrf_input() }}
-        <div class="row">
+        <div class="row align-items-center">
             <div class="col-md-5">
-                <div class="form-group control-medium">
+                <div class="form-group control-select">
                     {% if not user %}
                         {# Modification start; original below #}
                         {#
@@ -25,9 +25,9 @@
                         </p>
                         {# Modification end #}
                     {% endif %}
+                    {# Modification start; this was added #}
+                    <label class="form-label" for="username">{{ _("Eawag Username") }}</label>
                     <div class="controls">
-                        {# Modification start; this was added #}
-                        <label>{{ _("Eawag username") }}</label>
                         {# Modification end #}
                         {% if user %}
                             <input type="hidden" name="username" value="{{ user.name }}" />
@@ -35,8 +35,8 @@
                                    name="username"
                                    type="text"
                                    value="{{ user.name }}"
-                                   disabled="True"
-                                   class="form-control" />
+                                   disabled
+                                   class="form-control control-medium" />
                         {% else %}
                             {# Modification start; original in comment; placeholder changed #}
                             {#
@@ -47,7 +47,7 @@
                                    name="username"
                                    placeholder="{{ _("eawagusername") }}"
                                    value=""
-                                   class="control-medium"
+                                   class="form-control control-medium"
                                    data-module="autocomplete"
                                    data-module-source="/api/2/util/user/autocomplete?ignore_self=true&q=?" />
                             {# Modification end #}
@@ -82,7 +82,7 @@
             {% set format_attrs = {"data-module": "autocomplete"} %}
             {{ form.select('role', label=_('Role') , options=roles, selected=user_role, error='', attrs=format_attrs) }}
         {% endif %}
-        <div class="form-actions">
+        <div class="form-actions mt-3">
             {% if user %}
                 <a href="{{ h.url_for(group_type + '.member_delete', id=group_dict.id, user=user.id) }}"
                    class="btn btn-danger pull-left"

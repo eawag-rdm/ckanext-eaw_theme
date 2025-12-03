@@ -2,11 +2,9 @@
 {# We want only rea Eawag usernames. #}
 {% ckan_extends %}
 {% block form %}
-    <form class="dataset-form add-member-form"
-          method='post'
-          id="add-member-form">
-        {{ h.csrf_input() if 'csrf_input' in h }}
-        <div class="row">
+    <form class="add-member-form" method='post' id="add-member-form">
+        {{ h.csrf_input() }}
+        <div class="row align-items-center">
             <div class="col-md-5">
                 <div class="form-group control-medium">
                     {% if not user %}
@@ -27,28 +25,30 @@
                         </p>
                         {# Modification end #}
                     {% endif %}
-                    <div class="controls">
+                    <div class="form-group control-select">
                         {# Modification start; this was added #}
-                        <label>{{ _("Eawag username") }}</label>
+                        <label class="form-label">{{ _("Eawag username") }}</label>
                         {# Modification end #}
-                        {% if user %}
-                            <input type="hidden" name="username" value="{{ user.name }}" />
-                            <input id="username"
-                                   name="username"
-                                   type="text"
-                                   value="{{ user.name }}"
-                                   disabled="True"
-                                   class="form-control control-medium" />
-                        {% else %}
-                            <input id="username"
-                                   type="text"
-                                   name="username"
-                                   placeholder="Username"
-                                   value=""
-                                   class="control-medium"
-                                   data-module="autocomplete"
-                                   data-module-source="/api/2/util/user/autocomplete?ignore_self=true&q=?" />
-                        {% endif %}
+                        <div class="controls">
+                            {% if user %}
+                                <input type="hidden" name="username" value="{{ user.name }}" />
+                                <input id="username"
+                                       name="username"
+                                       type="text"
+                                       value="{{ user.name }}"
+                                       disabled="True"
+                                       class="form-control control-medium" />
+                            {% else %}
+                                <input id="username"
+                                       type="text"
+                                       name="username"
+                                       placeholder="Username"
+                                       value=""
+                                       class="control-medium"
+                                       data-module="autocomplete"
+                                       data-module-source="/api/2/util/user/autocomplete?ignore_self=true&q=?" />
+                            {% endif %}
+                        </div>
                     </div>
                 </div>
             </div>

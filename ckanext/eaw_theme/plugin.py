@@ -101,7 +101,7 @@ class EawThemePlugin(plugins.SingletonPlugin, DefaultTranslation):
         }
 
     # IPackageController
-    def before_search(self, search_params):
+    def before_dataset_search(self, search_params):
         search_params.update(
             {"sort": search_params.get("sort", "mydefaultsortparam asc")}
         )

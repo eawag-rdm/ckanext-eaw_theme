@@ -1,0 +1,18 @@
+{% extends "page.html" %}
+{% block subtitle %}{{ _("Welcome") }}{% endblock %}
+{% block maintag %}{% endblock %}
+{% block toolbar %}{% endblock %}
+{% block content %}
+    <div class="homepage layout-3">
+        <div id="content" class="container">{{ self.flash() }}</div>
+        {% block primary_content %}
+            <div role="main" class="hero">
+                <div class="container">
+                    {% block search %}
+                        {% snippet 'home/snippets/search.html' %}
+                    {% endblock %}
+                </div>
+            </div>
+        {% endblock %}
+    </div>
+{% endblock %}

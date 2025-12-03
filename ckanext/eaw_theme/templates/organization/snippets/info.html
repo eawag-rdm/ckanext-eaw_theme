@@ -19,7 +19,7 @@ if there is no description for the organization
 {% block nums %}
     <div class="nums">
         <dl>
-            <dt>{{ _("Datasets") }}</dt>
+            <dt>{{ h.humanize_entity_type('package', dataset_type, 'facet label') or _('Datasets') }}</dt>
             <dd>
                 {{ h.SI_number_span(organization.package_count) }}
             </dd>

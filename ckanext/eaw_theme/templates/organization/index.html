@@ -1,11 +1,11 @@
 {# Remove sidebar / HvW 2019-10 #}
 {# We override block primary from page.html, just to be able to #}
 {# change <div class="primary col-sm-9 col-xs-12"> to #}
-{# <div class="primary col-xs-12">. #}
+{# <div class="primary col-12">. #}
 {# "{{ super () }}" fills in the content of parent index.html. #}
 {% ckan_extends %}
 {% block primary %}
-    <div class="primary col-xs-12">
+    <div class="primary col-12">
         {% block primary_content %}
             <article class="module">
                 {% block page_header %}{% endblock %}
