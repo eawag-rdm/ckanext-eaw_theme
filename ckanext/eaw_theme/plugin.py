@@ -12,6 +12,7 @@ from ckanext.eaw_schema.helpers import (
     eaw_theme_patch_linked_user,
 )
 from ckanext.eaw_theme import validators
+from ckanext.eaw_theme import views
 
 
 class EawThemePlugin(plugins.SingletonPlugin, DefaultTranslation):
@@ -21,6 +22,7 @@ class EawThemePlugin(plugins.SingletonPlugin, DefaultTranslation):
     plugins.implements(plugins.ITemplateHelpers)
     plugins.implements(plugins.IPackageController, inherit=True)
     plugins.implements(plugins.IValidators)
+    plugins.implements(plugins.IBlueprint)
 
     # IConfigurer
     def update_config(self, config_):
@@ -89,3 +91,7 @@ class EawThemePlugin(plugins.SingletonPlugin, DefaultTranslation):
             "repeating_text": validators.repeating_text,
             "repeating_text_output": validators.repeating_text_output,
         }
+
+    # IBlueprint
+    def get_blueprint(self):
+        return views.eaw_theme

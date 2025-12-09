@@ -1,0 +1,66 @@
+{% extends "page.html" %}
+
+{% block subtitle %}{{ _('Help') }}{% endblock %}
+
+{% block breadcrumb_content %}
+  <li class="active">{% link_for _('Help'), named_route='eaw_theme.help' %}</li>
+{% endblock %}
+
+{% block primary %}
+  <article class="module">
+    <div class="module-content">
+      <h1 class="page-heading">{{ _('Help') }}</h1>
+      {% block help_content %}
+        <style>
+          div.ckanext-pages-content {
+            font-size: large;
+          }
+        </style>
+        <div class="ckanext-pages-content">
+          <div class="alert alert-block alert-warning">
+            <strong>This webservice is only accessible from within the Eawag network.</strong>
+          </div>
+          <div class="alert alert-block alert-warning">
+            <span style="color:red;">
+              <strong>Do not publish URLs to this service. It is only available inside the Eawag network!</strong>
+            </span>
+          </div>
+
+          <div class="alert alert-block alert-info">
+            <strong>First-time users check out
+              <a href="https://opendata.eawag.ch/docs/research-data-management/quickstart.html" target="_blank" rel="noopener noreferrer">
+                The Quick Start Guide <i class="fa fa-external-link-square fa-lg"></i>
+              </a>.
+            </strong>
+          </div>
+
+          <div class="alert alert-block alert-info">
+            <strong>To publish Open Research Data, follow steps outlined in the
+              <a href="https://opendata.eawag.ch/docs/research-data-management/publish-a-data-package.html" target="_blank" rel="noopener noreferrer">
+                ORD-Guide <i class="fa fa-external-link-square fa-lg"></i>
+              </a>.
+            </strong>
+          </div>
+
+          <ul>
+            <li>Online help is available for each field by clicking on the info-button (<i class="fa fa-info-circle"></i>) next to the form-field.</li>
+            <br />
+            <li>More detailed instructions are contained in the
+              <a href="https://opendata.eawag.ch/docs/research-data-management/archiving-guide.html" target="_blank" rel="noopener noreferrer">
+                Eawag guide for publishing and archiving of research data
+              </a>.
+            </li>
+            <br />
+            <li>Using ERIC is most likely necessary to be compliant with the
+              <a href="https://www.internal.eawag.ch/fileadmin/intranet/informatik/datenman/rdm/directive_archiving_of_researchdata.pdf">
+                Directive on the archiving of research data at Eawag
+              </a>.
+            </li>
+          </ul>
+        </div>
+      {% endblock %}
+    </div>
+  </article>
+{% endblock %}
+
+{% block secondary %}{% endblock %}
