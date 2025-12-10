@@ -78,29 +78,30 @@
             </div>
         </div>
     {% endblock %}
-    <header class="navbar navbar-static-top masthead">
+    <header class="masthead">
         {% block header_debug %}
             {% if g.debug and not g.debug_supress_header %}
                 <div class="debug">
-                    Controller : {{ c.controller }}
+                    Blueprint : {{ g.blueprint }}
                     <br />
-                    Action : {{ c.action }}
+                    View : {{ g.view }}
                 </div>
             {% endif %}
         {% endblock %}
         <div class="container">
             <div class="navbar-right">
-                <button data-target="#main-navigation-toggle"
-                        data-toggle="collapse"
-                        class="navbar-toggle collapsed"
+                <button data-bs-target="#main-navigation-toggle"
+                        data-bs-toggle="collapse"
+                        class="navbar-toggler collapsed"
                         type="button"
-                        aria-label="expand or collapse"
-                        aria-expanded="false">
-                    <span class="sr-only">{{ _("Toggle navigation") }}</span>
+                        aria-controls="main-navigation-toggle"
+                        aria-expanded="false"
+                        aria-label="{{ _('Toggle navigation') }}">
+                    <span class="visually-hidden">{{ _("Toggle navigation") }}</span>
                     <span class="fa fa-bars"></span>
                 </button>
             </div>
-            <hgroup class="{{ g.header_class }} navbar-left">
+            <div class="{{ g.header_class }} navbar-left">
                 {% block header_logo %}
                     {% if g.site_logo %}
                         <a class="logo" href="{{ h.url_for("home.index") }}">
@@ -115,7 +116,7 @@
                         {% if g.site_description %}<h2>{{ g.site_description }}</h2>{% endif %}
                     {% endif %}
                 {% endblock %}
-            </hgroup>
+            </div>
             <div class="collapse navbar-collapse" id="main-navigation-toggle">
                 {% block header_site_navigation %}
                     <nav class="section navigation">
