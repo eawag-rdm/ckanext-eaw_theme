@@ -53,6 +53,7 @@ a.logo img {
 div.homepage.layout-3 {
   background: url("../../images/airbubbles.jpg");
   background-size: 100%;
+  min-height: 80vh;
 }
 
 .homepage .module-feeds {
@@ -113,7 +114,9 @@ select.filterselect {
 
 .search-form {
     clear: both;
-    margin-bottom: -30px;
+    margin-bottom: 0px;
+    padding-bottom: 25px;
+    border-bottom: 0px;
 }
 
 .search-form input.wide-search {
@@ -389,15 +392,42 @@ label.checkbox.btn.btn-success.fa.fa-plus {
 }
 
 .homepage .module-search .tags {
-    padding: 5px 10px 10px 10px;
-    background-color: #005d7a;;
+    padding: 0px 10px 10px 10px;
+    background-color: #005d7a;
     -webkit-border-radius: 0 0 15px 15px;
     -moz-border-radius: 0 0 15px 15px;
     border-radius: 0 0 15px 15px;
+    margin-top: -10px;
 }
 
 .homepage .module-search .module-content {
     -webkit-border-radius: 15px 15px 0 0;
     -moz-border-radius: 15px 15px 0 0;
     border-radius: 15px 15px 0 0;
+}
+
+.homepage .module-search .search-form {
+    padding: 15px 20px;
+}
+
+/* Footer text color for Bootstrap 5 */
+.site-footer {
+    color: #CCDEE3;
+}
+
+/* Markdown view styling fixes */
+#markdown_content {
+    background-color: #fff !important;
+    padding: 20px !important;
+    border-radius: 3px !important;
+    min-height: 100vh !important;
+    margin: 0 !important;
+}
+
+body.resource.view {
+    background: #fff !important;
+}
+
+body.resource.view .main {
+    background: #fff !important;
 }
