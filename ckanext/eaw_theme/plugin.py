@@ -1,3 +1,4 @@
+import mimetypes
 from collections import OrderedDict
 
 import ckan.plugins as plugins
@@ -15,6 +16,40 @@ from ckanext.eaw_theme import validators
 from ckanext.eaw_theme import views
 
 
+def _strip_download_content_encoding(app):
+    """WSGI middleware: drop the bogus ``Content-Encoding`` header that
+    werkzeug's ``send_file`` adds for resource files whose name ends in ``.gz``
+    (and the other suffixes in ``mimetypes.encodings_map``: ``.bz2``, ``.Z``,
+    ``.tgz`` ...).
+
+    ``mimetypes.guess_type("x.vcf.gz")`` returns ``("text/...", "gzip")``;
+    werkzeug copies that second element into ``Content-Encoding``. Browsers then
+    transparently decompress the stream while ``Content-Length`` still reports
+    the *compressed* size, so the download never completes (stuck "resuming")
+    and the reported size is wrong. The stored file is the archive itself, not
+    an HTTP transfer encoding, so the header is incorrect for downloads.
+
+    Scoped to resource-download responses (``/resource/.../download``) so it
+    never touches genuinely content-encoded responses elsewhere.
+    """
+
+    def middleware(environ, start_response):
+        path = environ.get("PATH_INFO", "")
+        is_download = "/resource/" in path and "/download" in path
+
+        def _start_response(status, headers, exc_info=None):
+            if is_download:
+                headers = [
+                    (k, v) for (k, v) in headers
+                    if k.lower() != "content-encoding"
+                ]
+            return start_response(status, headers, exc_info)
+
+        return app(environ, _start_response)
+
+    return middleware
+
+
 class EawThemePlugin(plugins.SingletonPlugin, DefaultTranslation):
     plugins.implements(plugins.ITranslation)
     plugins.implements(plugins.IConfigurer)
@@ -23,12 +58,21 @@ class EawThemePlugin(plugins.SingletonPlugin, DefaultTranslation):
     plugins.implements(plugins.IPackageController, inherit=True)
     plugins.implements(plugins.IValidators)
     plugins.implements(plugins.IBlueprint)
+    plugins.implements(plugins.IMiddleware, inherit=True)
 
     # IConfigurer
     def update_config(self, config_):
         toolkit.add_template_directory(config_, "templates")
         toolkit.add_public_directory(config_, "public")
         toolkit.add_resource("assets", "eaw_theme")
+        # VCF = Variant Call Format, not vCard contact cards. Python's
+        # mimetypes maps .vcf -> text/vcard by default; force a neutral type
+        # so large (often .gz) genomic files download instead of mis-rendering.
+        mimetypes.add_type("application/octet-stream", ".vcf")
+
+    # IMiddleware
+    def make_middleware(self, app, config):
+        return _strip_download_content_encoding(app)
 
     # IFacets
     def dataset_facets(self, facet_dict, package_type):
