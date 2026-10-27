@@ -1,1 +1,1 @@
-ckanext_eaw_schema @ git+https://github.com/eawag-rdm/ckanext-eaw_schema.git@eric#egg=ckanext_eaw_schema
+ckanext_eaw_schema @ git+https://github.com/eawag-rdm/ckanext-eaw_schema.git@eric-open#egg=ckanext_eaw_schema
